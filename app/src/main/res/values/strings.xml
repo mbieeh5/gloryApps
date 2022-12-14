@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">GloryServices</string>
+    <!-- Strings related to login -->
+    <string name="login_form">Login</string>
+    <string name="login_form_email">Email</string>
+    <string name="login_form_password">Password</string>
+    <string name="login_form_login">Sign in</string>
+
+    <!-- String related to Home-->
+    <string name="welcome">Welcome Aboard Captain</string>
+    <string name="home">Home</string>
+    <string name="latest_service">Latest Service</string>
+    <string name="stock_info">Info Stock</string>
+    <string name="float_btn">Add</string>
+
+    <!--String for Bottom Nav-->
+    <string name="b_add">Add</string>
+    <string name="b_home">Home</string>
+    <string name="b_search">Search</string>
+    <string name="b_profile">Profile</string>
+    <string name="b_setting">Settings</string>
+
+    <!--String for Add-->
+    <string name="i_add">InputService</string>
+    <string name="t_date">Tanggal</string>
+    <string name="t_hp">Type HP</string>
+    <string name="t_rsk">Kerusakan</string>
+    <string name="t_hrg">Harga</string>
+    <string name="h_date">31/12/2077</string>
+    <string name="h_hp">Masukan Type HP</string>
+    <string name="h_rsk">Masukan Jenis Kerusakan</string>
+    <string name="h_hrg">Rp 50.000</string>
+    <string name="b_input">Input</string>
+    <string name="h_terima">Masukan Nama Penerima</string>
+    <string name="h_status">Masukan Status Service</string>
+    <string name="b_simpan">Simpan</string>
+    <string name="tv_edit">Edit Service</string>
+    <!--String For Home-->
+    <string name="t_list">List Service</string>
+    <string name="j_tgl">Tanggal</string>
+    <string name="j_hp">Type HP</string>
+    <string name="j_rsk">Kerusakan</string>
+    <string name="j_hrg">Harga</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "16582069906",
+    "firebase_url": "https://gloryservice-1f99b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "gloryservice-1f99b",
+    "storage_bucket": "gloryservice-1f99b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16582069906:android:3c5876f5495240884ee04b",
+        "android_client_info": {
+          "package_name": "com.rraf.gloryservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16582069906-u326t7hb9a09n8qghr0kvoarbck6a8sn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh2UK4ezca3-lU4R2MYAMcGgui8kon0ZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16582069906-u326t7hb9a09n8qghr0kvoarbck6a8sn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16582069906:android:31c2aa3ee492e08f4ee04b",
+        "android_client_info": {
+          "package_name": "com.rraf.gloryservices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16582069906-u326t7hb9a09n8qghr0kvoarbck6a8sn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh2UK4ezca3-lU4R2MYAMcGgui8kon0ZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16582069906-u326t7hb9a09n8qghr0kvoarbck6a8sn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
