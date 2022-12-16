@@ -26,6 +26,8 @@
     <string name="t_hp">Type HP</string>
     <string name="t_rsk">Kerusakan</string>
     <string name="t_hrg">Harga</string>
+    <string name="t_penerima">Penerima</string>
+    <string name="h_penerima">Masukan Nama Penerima</string>
     <string name="h_date">31/12/2077</string>
     <string name="h_hp">Masukan Type HP</string>
     <string name="h_rsk">Masukan Jenis Kerusakan</string>
@@ -42,6 +44,11 @@
     <string name="j_hp">Type HP</string>
     <string name="j_rsk">Kerusakan</string>
     <string name="j_hrg">Harga</string>
+    <string name="nama_seli">marcelina</string>
+    <string name="nama_sindy">sindy</string>
+    <string name="nama_war">wardah</string>
+    <string name="nama_hil">hilda</string>
+    <string name="nama_aldi">aldi</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

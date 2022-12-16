@@ -62,8 +62,9 @@ public class AddActivity extends AppCompatActivity {
                 iHp = binding.iHp.getText().toString();
                 iRsk = binding.iRsk.getText().toString();
                 iHrg = binding.iHrg.getText().toString();
+                iPenerima = binding.iPenerima.getText().toString();
                 if(!iTgl.isEmpty() && !iHp.isEmpty() && !iRsk.isEmpty() && !iHrg.isEmpty()) {
-                    InputClass inputClass = new InputClass(iTgl, iHp, iRsk, iHrg);
+                    InputClass inputClass = new InputClass(iTgl, iPenerima, iHp, iRsk, iHrg);
                     db = FirebaseDatabase.getInstance();
                     reference = db.getReference("Service");
                     reference.child("dataService").push().setValue(inputClass).addOnCompleteListener(new OnCompleteListener<Void>() {

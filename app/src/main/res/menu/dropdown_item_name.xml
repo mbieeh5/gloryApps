@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/nama_aldi"/>
+
+    <item
+        android:title="@string/nama_hil"/>
+
+    <item
+        android:title="@string/nama_seli"/>
+
+    <item
+        android:title="@string/nama_sindy"/>
+
+    <item
+        android:title="@string/nama_war"/>
+
+</menu>
