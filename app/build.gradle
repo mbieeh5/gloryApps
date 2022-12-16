@@ -11,8 +11,8 @@ android {
         applicationId "com.rraf.gloryservices"
         minSdk 25
         targetSdk 33
-        versionCode 5
-        versionName "5.1"
+        versionCode 1
+        versionName "1.0.0-alpha.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
