@@ -4,6 +4,8 @@ import static com.rraf.gloryservices.R.*;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.rraf.gloryservices.activity.AddActivity;
@@ -24,10 +26,23 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(binding.getRoot());
 
+        binding.btnInput.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityAdd();
+            }
+        });
+
+        binding.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityHome();
+            }
+        });
 binding.bottomNav.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case id.n_home:
-                    ActivityHome();
+                    binding.getRoot();
                     break;
                 case id.n_add:
                     ActivityAdd();

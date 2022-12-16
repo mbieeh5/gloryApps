@@ -3,12 +3,16 @@ package com.rraf.gloryservices;
 import androidx.annotation.NonNull;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,15 +28,31 @@ public class LoginActivity extends AppCompatActivity {
     EditText u_name, p_wd;
     Button lgn_btn;
     String username, password;
+    CheckBox cblgn;
     private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
 
         mAuth = FirebaseAuth.getInstance();
         u_name = findViewById(R.id.username);
+        u_name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                    lgn_btn.setEnabled(true);
+            }
+        });
         p_wd = findViewById(R.id.password);
         lgn_btn = findViewById(R.id.login);
         lgn_btn.setOnClickListener(new View.OnClickListener() {
@@ -62,5 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+
     }
 }

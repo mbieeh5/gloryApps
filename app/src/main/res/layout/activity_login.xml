@@ -59,6 +59,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
+        android:enabled="false"
         android:layout_marginBottom="64dp"
         android:text="@string/login_form"
         app:layout_constraintBottom_toBottomOf="parent"

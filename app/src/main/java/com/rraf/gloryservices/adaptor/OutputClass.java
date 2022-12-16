@@ -2,7 +2,7 @@ package com.rraf.gloryservices.adaptor;
 
 public class OutputClass {
 
-    String iHp, iRsk, iTgl, iHrg;
+    String iHp, iRsk, iTgl, iHrg, key;
 
     public String getiHp() {
         return iHp;
@@ -18,5 +18,9 @@ public class OutputClass {
 
     public String getiHrg() {
         return iHrg;
+    }
+
+    public String getKey() {
+        return key;
     }
 }
