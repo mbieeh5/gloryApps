@@ -7,9 +7,9 @@
         android:title="@string/b_home"/>
 
     <item
-        android:id="@+id/n_search"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="@string/b_search"/>
+        android:id="@+id/n_history"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="@string/b_history"/>
 
     <item
         android:id="@+id/n_add"

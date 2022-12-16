@@ -32,6 +32,7 @@
     <string name="h_hrg">Rp 50.000</string>
     <string name="b_input">Input</string>
     <string name="h_terima">Masukan Nama Penerima</string>
+    <string name="b_history">History</string>
     <string name="h_status">Masukan Status Service</string>
     <string name="b_simpan">Simpan</string>
     <string name="tv_edit">Edit Service</string>

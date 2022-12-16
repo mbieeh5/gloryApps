@@ -32,7 +32,7 @@ binding.bottomNav.setOnItemSelectedListener(item -> {
                 case id.n_add:
                     ActivityAdd();
                     break;
-                case id.n_search:
+                case id.n_history:
                     ActivitySearch();
                     break;
                 case id.n_setting:

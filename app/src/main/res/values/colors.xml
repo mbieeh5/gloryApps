@@ -4,6 +4,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#eaeaea</color>
     <color name="orange_base_1000">#F05E16</color>
     <color name="orange_base_500">#F58216</color>
     <color name="orange_base_250">#FA9C1B</color>
