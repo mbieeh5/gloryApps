@@ -49,6 +49,15 @@
     <string name="nama_war">wardah</string>
     <string name="nama_hil">hilda</string>
     <string name="nama_aldi">aldi</string>
+    
+    <string-array name="nama_penerima">
+        <item>marcelina</item>
+        <item>sindy</item>
+        <item>wardah</item>
+        <item>hilda</item>
+        <item>aldi</item>
+        <item>richard</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

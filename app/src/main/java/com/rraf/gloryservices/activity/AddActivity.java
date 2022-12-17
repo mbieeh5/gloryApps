@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
@@ -17,10 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.rraf.gloryservices.R;
 import com.rraf.gloryservices.adaptor.InputClass;
 import com.rraf.gloryservices.databinding.ActivityAddBinding;
-import com.rraf.gloryservices.databinding.ActivityHomeBinding;
 
 import java.util.Calendar;
-import java.util.Random;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -28,6 +27,8 @@ public class AddActivity extends AppCompatActivity {
     String iTgl, iHp, iRsk, iHrg;
     FirebaseDatabase db;
     DatabaseReference reference;
+    AutoCompleteTextView atex;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,9 @@ public class AddActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+        adapter = new ArrayAdapter<String>(this, R.menu.dropdown_item_name, items);
+        atex = binding.autoComplete;
+        binding.autoComplete.setAdapter(adapter);
 
         binding.btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +66,9 @@ public class AddActivity extends AppCompatActivity {
                 iHp = binding.iHp.getText().toString();
                 iRsk = binding.iRsk.getText().toString();
                 iHrg = binding.iHrg.getText().toString();
-                iPenerima = binding.iPenerima.getText().toString();
+
                 if(!iTgl.isEmpty() && !iHp.isEmpty() && !iRsk.isEmpty() && !iHrg.isEmpty()) {
-                    InputClass inputClass = new InputClass(iTgl, iPenerima, iHp, iRsk, iHrg);
+                    InputClass inputClass = new InputClass(iTgl, iHp, iRsk, iHrg);
                     db = FirebaseDatabase.getInstance();
                     reference = db.getReference("Service");
                     reference.child("dataService").push().setValue(inputClass).addOnCompleteListener(new OnCompleteListener<Void>() {
