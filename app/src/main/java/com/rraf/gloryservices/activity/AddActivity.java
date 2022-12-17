@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
@@ -29,6 +30,7 @@ public class AddActivity extends AppCompatActivity {
     DatabaseReference reference;
     AutoCompleteTextView atex;
     ArrayAdapter<String> adapter;
+    String[] items = {"seli, sindy, wardah, aldi, amri, hilda" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +57,14 @@ public class AddActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-        adapter = new ArrayAdapter<String>(this, R.menu.dropdown_item_name, items);
-        atex = binding.autoComplete;
+        adapter = new ArrayAdapter<String>(this, R.layout.dropdown_list, items);
         binding.autoComplete.setAdapter(adapter);
+        binding.autoComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String item = ;
+            }
+        });
 
         binding.btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
