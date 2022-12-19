@@ -63,14 +63,16 @@ public class HomeActivity extends AppCompatActivity {
 
         recV = findViewById(R.id.recycleView_service);
         db = FirebaseDatabase.getInstance().getReference("Service").child("dataService");
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recV.setLayoutManager(layoutManager);
         recV.setHasFixedSize(true);
-        recV.setLayoutManager(new LinearLayoutManager(this));
-
         list = new ArrayList<>();
         adapter = new AdapterDataService(this, list);
         recV.setAdapter(adapter);
         sr = findViewById(R.id.refresh);
-        db.addValueEventListener(new ValueEventListener() {
+        db.orderByChild("iTgl").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
