@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:ems="10"
+        android:enabled="false"
         android:hint="@string/h_date"
         android:inputType="date"
         android:textSize="15sp"
@@ -50,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
+            android:enabled="false"
             android:hint="@string/h_hp"
             android:inputType="text"
             android:textSize="15sp"/>
@@ -96,6 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
+            android:enabled="false"
             android:hint="@string/h_terima"
             android:inputType="text"
             android:textSize="15sp"/>
@@ -105,15 +108,19 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         app:hintTextColor="#000">
-
-        <EditText
-            android:id="@+id/eStatus"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvstatus"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="@string/h_status"
-            android:inputType="text"
-            android:textSize="15sp"/>
+            android:layout_height="wrap_content"
+            android:hint="@string/t_Status"
+            app:layout_constraintTop_toBottomOf="@+id/iHrg"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/eStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

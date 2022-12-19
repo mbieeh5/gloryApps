@@ -21,22 +21,23 @@ import com.rraf.gloryservices.adaptor.InputClass;
 import com.rraf.gloryservices.databinding.ActivityAddBinding;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Objects;
 
 public class AddActivity extends AppCompatActivity {
 
     ActivityAddBinding binding;
-    String iTgl, iHp, iRsk, iHrg;
+    String iTgl, iHp, iRsk, iHrg, iPenerima, Id;
     FirebaseDatabase db;
     DatabaseReference reference;
-    AutoCompleteTextView atex;
     ArrayAdapter<String> adapter;
-    String[] items = {"seli, sindy, wardah, aldi, amri, hilda" };
+    String[] items = {"seli", "sindy", "wardah", "aldi", "amri", "hilda" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAddBinding.inflate((getLayoutInflater()));
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(binding.getRoot());
                 Calendar calendar = Calendar.getInstance();
                     final int year = calendar.get(Calendar.YEAR);
@@ -59,33 +60,38 @@ public class AddActivity extends AppCompatActivity {
         });
         adapter = new ArrayAdapter<String>(this, R.layout.dropdown_list, items);
         binding.autoComplete.setAdapter(adapter);
-        binding.autoComplete.setOnClickListener(new View.OnClickListener() {
+        binding.autoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                String item = ;
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                iPenerima = item;
+                Toast.makeText(AddActivity.this, "Penerima: "+item, Toast.LENGTH_SHORT).show();
             }
         });
+
 
         binding.btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Id = "data" +new Date().getTime();
                 iTgl = binding.iTgl.getText().toString();
                 iHp = binding.iHp.getText().toString();
                 iRsk = binding.iRsk.getText().toString();
                 iHrg = binding.iHrg.getText().toString();
+                iPenerima = binding.autoComplete.getText().toString();
 
                 if(!iTgl.isEmpty() && !iHp.isEmpty() && !iRsk.isEmpty() && !iHrg.isEmpty()) {
-                    InputClass inputClass = new InputClass(iTgl, iHp, iRsk, iHrg);
+                    InputClass inputClass = new InputClass(Id ,iTgl, iHp, iRsk, iHrg, iPenerima);
                     db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("Service");
-                    reference.child("dataService").push().setValue(inputClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    reference = db.getReference("Service").child("dataService");
+                    reference.child(Id).setValue(inputClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
                         binding.iTgl.setText("");
                         binding.iHp.setText("");
                         binding.iRsk.setText("");
                         binding.iHrg.setText("");
+                        binding.autoComplete.setText("");
 
                             Toast.makeText(AddActivity.this, "Data Berhasil Di Input Captain", Toast.LENGTH_SHORT).show();
                         }

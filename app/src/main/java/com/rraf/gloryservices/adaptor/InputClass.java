@@ -1,25 +1,35 @@
 package com.rraf.gloryservices.adaptor;
 
 public class InputClass {
-    String iTgl, iHp, iRsk, iHrg;
+    String iTgl, iHp, iRsk, iHrg, iPenerima, Id;
 
     public InputClass() {
     }
 
-    public InputClass(String iTgl, String iHp, String iRsk, String iHrg) {
+    public InputClass(String Id, String iTgl, String iHp, String iRsk, String iHrg, String iPenerima) {
+        this.Id = Id;
         this.iTgl = iTgl;
         this.iHp = iHp;
         this.iRsk = iRsk;
         this.iHrg = iHrg;
+        this.iPenerima = iPenerima;
     }
 
-    /*public String getiPenerima(){
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getiPenerima(){
         return iPenerima;
     }
 
     public void setiPenerima(){
         this.iPenerima = iPenerima;
-    }*/
+    }
 
     public String getiTgl() {
         return iTgl;

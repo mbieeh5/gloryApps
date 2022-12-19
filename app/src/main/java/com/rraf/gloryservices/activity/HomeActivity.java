@@ -1,19 +1,22 @@
 package com.rraf.gloryservices.activity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.utils.widget.ImageFilterButton;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +27,6 @@ import com.rraf.gloryservices.Home;
 import com.rraf.gloryservices.R;
 import com.rraf.gloryservices.adaptor.AdapterDataService;
 import com.rraf.gloryservices.adaptor.OutputClass;
-import com.rraf.gloryservices.databinding.ActivityHomeBinding;
 
 import java.util.ArrayList;
 
@@ -36,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     DatabaseReference db;
     ImageView img;
     ImageFilterButton filter;
+    SwipeRefreshLayout sr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         list = new ArrayList<>();
         adapter = new AdapterDataService(this, list);
         recV.setAdapter(adapter);
-
+        sr = findViewById(R.id.refresh);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -74,6 +77,16 @@ public class HomeActivity extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()){
                     OutputClass oclass = ds.getValue(OutputClass.class);
                     list.add(oclass);
+        sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                list.add(oclass);
+                finish();
+                startActivity(getIntent());
+                sr.setRefreshing(false);
+            }
+        });
+
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -83,7 +96,10 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
     }
+
+
 
     private void kembali(){
         Intent intent = new Intent(this, Home.class);
