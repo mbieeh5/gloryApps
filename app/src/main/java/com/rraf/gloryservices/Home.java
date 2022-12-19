@@ -2,18 +2,19 @@ package com.rraf.gloryservices;
 
 import static com.rraf.gloryservices.R.*;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.rraf.gloryservices.activity.AddActivity;
-import com.rraf.gloryservices.activity.HomeActivity;
-import com.rraf.gloryservices.activity.ProfileActivity;
-import com.rraf.gloryservices.activity.SearchActivity;
-import com.rraf.gloryservices.activity.SettingActivity;
 import com.rraf.gloryservices.databinding.ActivityHomeBinding;
+import com.rraf.gloryservices.fragment.FragmentHistory;
+import com.rraf.gloryservices.fragment.FragmentHome;
+import com.rraf.gloryservices.fragment.FragmentLeaderboard;
+import com.rraf.gloryservices.fragment.FragmentProfile;
+import com.rraf.gloryservices.fragment.FragmentSettings;
 
 public class Home extends AppCompatActivity {
 
@@ -25,65 +26,35 @@ public class Home extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         getSupportActionBar().hide();
         setContentView(binding.getRoot());
+        replaceFragment(new FragmentHome());
 
-        binding.btnInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityAdd();
-            }
-        });
-
-        binding.btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityHome();
-            }
-        });
-binding.bottomNav.setOnItemSelectedListener(item -> {
+    binding.bottomNav.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case id.n_home:
-                    binding.getRoot();
+                    replaceFragment(new FragmentHome());
                     break;
-                case id.n_add:
-                    ActivityAdd();
+                case id.n_leaderboard:
+                    replaceFragment(new FragmentLeaderboard());
                     break;
                 case id.n_history:
-                    ActivitySearch();
-                    break;
-                case id.n_setting:
-                    ActivitySetting();
+                    replaceFragment(new FragmentHistory());
                     break;
                 case id.n_profile:
-                    ActivityProfile();
+                    replaceFragment(new FragmentProfile());
                     break;
-
+                case id.n_setting:
+                    replaceFragment(new FragmentSettings());
+                    break;
             }
             return true;
         });
     }
-
-    private void ActivityHome() {
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(id.fHome, fragment);
+        ft.commit();
     }
-    private void ActivityAdd() {
-        Intent intent = new Intent(this, AddActivity.class);
-        startActivity(intent);
-    }
-    private void ActivitySearch() {
-        Intent intent = new Intent(this, SearchActivity.class);
-        startActivity(intent);
-    }
-    private void ActivitySetting() {
-        Intent intent = new Intent(this, SettingActivity.class);
-        startActivity(intent);
-    }
-    private void ActivityProfile() {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-    }
-
-
 }
 
 

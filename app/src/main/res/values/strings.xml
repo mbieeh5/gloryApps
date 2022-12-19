@@ -14,7 +14,7 @@
     <string name="float_btn">Add</string>
 
     <!--String for Bottom Nav-->
-    <string name="b_add">Add</string>
+    <string name="b_leader">Leaderboard</string>
     <string name="b_home">Home</string>
     <string name="b_search">Search</string>
     <string name="b_profile">Profile</string>

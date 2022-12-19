@@ -21,18 +21,6 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".activity.ProfileActivity"
-            android:exported="false">
-        </activity>
-        <activity
-        android:name=".activity.SearchActivity"
-        android:exported="false">
-        </activity>
-        <activity
-            android:name=".activity.SettingActivity"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".Home"
             android:exported="false" />
         <activity
