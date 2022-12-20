@@ -33,6 +33,7 @@ import com.rraf.gloryservices.activity.AddActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Formatter;
 import java.util.Objects;
 
 public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.DataViewHolder> {
@@ -42,6 +43,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
     DatabaseReference db;
     ArrayAdapter<String> adapter;
     String[] items = {"LUNAS", "CANCELED" };
+    String[] itemP = {"AMRI", "IBNU" };
 
     public AdapterDataService(Context context, ArrayList<OutputClass> list) {
         this.context = context;
@@ -57,13 +59,15 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
 
     @Override
     public void onBindViewHolder(@NonNull AdapterDataService.DataViewHolder holder, int position) {
-        Color a;
         OutputClass oc = list.get(position);
         holder.oTgl.setText(oc.getiTgl());
+        holder.oKerjaan.setText(oc.getiKerjaan());
         holder.oHp.setText(oc.getiHp());
         holder.oRsk.setText(oc.getiRsk());
         holder.oHrg.setText(oc.getiHrg());
+        holder.oMdl.setText(oc.getiMdl());
         holder.oPenerima.setText(oc.getiPenerima());
+        holder.oCuan.setText(" ");
         if(Objects.equals(oc.iStatus, "LUNAS")) {
             holder.eBtn.setText(oc.iStatus);
             holder.eBtn.setTextColor(Color.rgb(255,255,255));
@@ -80,7 +84,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
             holder.eBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showUpdateDialog(oc.getId(), oc.getiTgl(), oc.getiHp(), oc.getiRsk(), oc.getiHrg(), oc.getiPenerima(), oc.getiStatus());
+                    showUpdateDialog(oc.getId(), oc.getiTgl(), oc.getiHp(), oc.getiRsk(), oc.getiMdl(), oc.getiHrg(), oc.getiPenerima(), oc.getiStatus(), oc.getiKerjaan());
                 }
             });
         }
@@ -91,7 +95,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         return list.size();
     }
 
-    private void showUpdateDialog(String Id, String iTgl, String iHp, String iRsk, String iHrg, String iPenerima, String iStatus){
+    private void showUpdateDialog(String Id, String iTgl, String iHp, String iRsk,String iMdl, String iHrg, String iPenerima, String iStatus, String iKerjaan){
         DialogPlus dialogPlus = DialogPlus.newDialog(context)
                 .setGravity(Gravity.CENTER)
                 .setMargin(50,0,50,0)
@@ -122,6 +126,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         });
         EditText eHp = a.findViewById(R.id.eHp);
         EditText eRsk = a.findViewById(R.id.eRsk);
+        EditText eMdl = a.findViewById(R.id.eMdl);
         EditText eHrg = a.findViewById(R.id.eHrg);
         EditText eTerima = a.findViewById(R.id.eTerima);
         AutoCompleteTextView eStatus = a.findViewById(R.id.eStatus);
@@ -134,6 +139,23 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
                 eStatus.setText(item);
             }
         });
+        AutoCompleteTextView eKerjaan = a.findViewById(R.id.eKerjaan);
+        adapter = new ArrayAdapter<String>(context, R.layout.dropdown_list, itemP);
+        eKerjaan.setAdapter(adapter);
+        eKerjaan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                eKerjaan.setText(item);
+                if(Objects.equals(item, "IBNU")) {
+                    eMdl.setEnabled(true);
+                }else if(Objects.equals(item, "AMRI")){
+                    eMdl.setEnabled(false);
+                } else{
+                    eMdl.setEnabled(false);
+                }
+            }
+        });
 
         Button btnSimpan = a.findViewById(R.id.btnSimpan);
         dialogPlus.show();
@@ -142,6 +164,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         eRsk.setText(iRsk);
         eHrg.setText(iHrg);
         eTerima.setText(iPenerima);
+        eKerjaan.setText(iKerjaan);
         eStatus.setText(iStatus);
 
 
@@ -151,33 +174,38 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
                 String newTgl = eTgl.getText().toString();
                 String newHp = eHp.getText().toString();
                 String newRsk = eRsk.getText().toString();
+                String newMdl = eMdl.getText().toString();
                 String newHrg = eHrg.getText().toString();
                 String newTerima = eTerima.getText().toString();
+                String newKerjaan = eKerjaan.getText().toString();
                 String newStatus = eStatus.getText().toString();
                 db = FirebaseDatabase.getInstance().getReference("Service");
-                if(newTgl.isEmpty() || newHp.isEmpty() || newRsk.isEmpty() || newHrg.isEmpty() || newTerima.isEmpty()||newStatus.isEmpty()){
+                if(newTgl.isEmpty() || newHp.isEmpty() || newRsk.isEmpty() || newHrg.isEmpty() || newTerima.isEmpty() || newStatus.isEmpty() || newKerjaan.isEmpty()){
                     Toast.makeText(context, "Pastikan Data Terisi Semua", Toast.LENGTH_SHORT).show();
                 }else {
-                    db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newHp, newRsk, newHrg, newTerima, newStatus));
-                }
+                    db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newHp, newRsk,newMdl, newHrg, newTerima, newStatus, newKerjaan));
                 Toast.makeText(context, "Data Berhasil Di Simpan", Toast.LENGTH_SHORT).show();
                 dialogPlus.dismiss();
+                }
             }
         });
     }
 
     public static class DataViewHolder extends RecyclerView.ViewHolder{
 
-        TextView oTgl, oHp, oRsk, oHrg, oPenerima;
+        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oMdl, oCuan, oKerjaan;
         Button eBtn;
 
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
         oPenerima = itemView.findViewById(R.id.d_terima);
+        oKerjaan = itemView.findViewById(R.id.d_kerjaan);
         oTgl = itemView.findViewById(R.id.d_tgl);
         oHp = itemView.findViewById(R.id.d_hp);
         oRsk = itemView.findViewById(R.id.d_rsk);
+        oMdl = itemView.findViewById(R.id.d_mdl);
         oHrg = itemView.findViewById(R.id.d_hrg);
+        oCuan = itemView.findViewById(R.id.total);
         eBtn = itemView.findViewById(R.id.editBtn);
         }
     }

@@ -28,11 +28,13 @@
     <string name="t_hrg">Harga</string>
     <string name="t_penerima">Penerima</string>
     <string name="t_Status">STATUS</string>
+    <string name="t_Kerjaan">Pengerjaan</string>
     <string name="h_penerima">Masukan Nama Penerima</string>
     <string name="h_date">Masukan Tanggal</string>
     <string name="h_hp">Masukan Type HP</string>
     <string name="h_rsk">Masukan Jenis Kerusakan</string>
     <string name="h_hrg">Masukan Harga</string>
+    <string name="h_mdl">Masukan Harga Modal</string>
     <string name="b_input">Input</string>
     <string name="h_terima">Masukan Nama Penerima</string>
     <string name="b_history">History</string>
