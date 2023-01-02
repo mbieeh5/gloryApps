@@ -1,13 +1,10 @@
 package com.rraf.gloryservices.fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,8 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rraf.gloryservices.R;
-import com.rraf.gloryservices.activity.HomeActivity;
-import com.rraf.gloryservices.adaptor.AdapterDataService;
+import com.rraf.gloryservices.adaptor.AdapterDataServiceHistory;
 import com.rraf.gloryservices.adaptor.OutputClass;
 
 import java.util.ArrayList;
@@ -30,7 +26,7 @@ import java.util.ArrayList;
 public class FragmentHistory extends Fragment {
 
     RecyclerView recv;
-    AdapterDataService adapter;
+    AdapterDataServiceHistory adapter;
     ArrayList<OutputClass> list;
     DatabaseReference db;
 
@@ -51,14 +47,14 @@ public class FragmentHistory extends Fragment {
         recv.setLayoutManager(new LinearLayoutManager(getContext()));
         recv.setHasFixedSize(true);
         list = new ArrayList<>();
-        adapter = new AdapterDataService(getContext(), list);
+        adapter = new AdapterDataServiceHistory(getContext(), list);
         recv.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
         db.orderByChild("iTgl").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()){
                     list.add(ds.getValue(OutputClass.class));
+        adapter.notifyDataSetChanged();
                 }
             }
 
