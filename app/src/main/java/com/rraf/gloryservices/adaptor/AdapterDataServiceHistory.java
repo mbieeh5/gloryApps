@@ -61,7 +61,7 @@ public class AdapterDataServiceHistory extends RecyclerView.Adapter<AdapterDataS
 
     public static class DataViewHolder extends RecyclerView.ViewHolder{
 
-        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oMdl, oCuan, oKerjaan, ostatusTxt ;
+        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oKerjaan, ostatusTxt ;
 
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);

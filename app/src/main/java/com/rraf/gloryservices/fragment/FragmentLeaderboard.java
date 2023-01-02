@@ -2,59 +2,37 @@ package com.rraf.gloryservices.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rraf.gloryservices.R;
+import com.rraf.gloryservices.adaptor.AdapteLeaderBoard;
+import com.rraf.gloryservices.adaptor.LeaderboardClass;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentLeaderboard#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class FragmentLeaderboard extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    RecyclerView recv;
+    AdapteLeaderBoard adapter;
+    ArrayList<LeaderboardClass> lists;
+    DatabaseReference db;
 
     public FragmentLeaderboard() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentLeaderboard.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentLeaderboard newInstance(String param1, String param2) {
-        FragmentLeaderboard fragment = new FragmentLeaderboard();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -62,5 +40,33 @@ public class FragmentLeaderboard extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_leaderboard, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TextView topf = view.findViewById(R.id.tv_top);
+        topf.setText("-");
+        db = FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima");
+        recv = view.findViewById(R.id.recv_leaderboard);
+        recv.setLayoutManager(new LinearLayoutManager(getContext()));
+        recv.setHasFixedSize(true);
+        lists = new ArrayList<>();
+        adapter = new AdapteLeaderBoard(getContext(), lists);
+        recv.setAdapter(adapter);
+        db.orderByChild("nama").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    lists.add(ds.getValue(LeaderboardClass.class));
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 public class OutputClass {
 
     String iHp, iRsk, iTgl, iMdl, iHrg, iPenerima, iStatus, id, iKerjaan;
+
     public OutputClass(){
 
     }

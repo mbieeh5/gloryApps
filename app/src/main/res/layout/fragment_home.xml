@@ -96,6 +96,7 @@
                     app:layout_constraintStart_toEndOf="@id/cv_photo"
                     />
                 <TextView
+                    android:id="@+id/pointtxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="99.999.999"
