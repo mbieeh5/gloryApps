@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText u_name, p_wd;
     Button lgn_btn;
     String username, password;
-    CheckBox cblgn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -38,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         mAuth = FirebaseAuth.getInstance();
+
+
         u_name = findViewById(R.id.username);
         u_name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -53,6 +54,10 @@ public class LoginActivity extends AppCompatActivity {
                     lgn_btn.setEnabled(true);
             }
         });
+        if(mAuth.getCurrentUser() != null) {
+            Intent home = new Intent(LoginActivity.this, Home.class);
+            startActivity(home);
+        }
         p_wd = findViewById(R.id.password);
         lgn_btn = findViewById(R.id.login);
         lgn_btn.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +76,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this,
-                                    "Welcome Aboard Captain",
-                                    Toast.LENGTH_SHORT).show();
                             Intent home = new Intent(LoginActivity.this, Home.class);
                             startActivity(home);
-
+                            Toast.makeText(LoginActivity.this,"Welcome Aboard Captain", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LoginActivity.this, "Wrong Credential Please Contact IT Support", Toast.LENGTH_SHORT).show();
                         }

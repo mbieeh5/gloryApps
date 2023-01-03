@@ -24,7 +24,7 @@
             android:background="@drawable/ic_baseline_arrow_back_24"/>
 
     <SearchView
-        android:id="@+id/search_bar"
+        android:id="@+id/searchItem"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:background="@color/white"

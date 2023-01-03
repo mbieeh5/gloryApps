@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -81,8 +82,15 @@ public class FragmentHome extends Fragment {
                         btnEdit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                ActivityHome();
-            }
+                        ActivityHome();
+                            }
+                        });
+                    }else if (Objects.equals(user.getEmail(), "admin@rraf.rraf")){
+                        btnEdit.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ActivityHome();
+                            }
                         });
                     }
                 }

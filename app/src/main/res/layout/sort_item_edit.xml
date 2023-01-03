@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/tv_edit"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:background="@color/orange_base_50"
+        android:gravity="center"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_margin="5dp"
+    app:hintTextColor="#000">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Tgl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+    <TextView
+        android:textAlignment="center"
+        android:padding="9dp"
+        android:id="@+id/fTgl"
+        android:text=""
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:hint="Pilih Tanggal"
+        android:textSize="20sp"/>
+        </androidx.cardview.widget.CardView>
+
+</com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnCariType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/orange_base_100"
+        android:text="Type Hp A - Z"
+        android:layout_gravity="start"
+        />
+
+    <Button
+        android:id="@+id/btnCari"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:textSize="23sp"
+        android:text="cari"
+        android:layout_gravity="end"
+        />
+
+
+</LinearLayout>
