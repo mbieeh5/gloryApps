@@ -28,7 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@color/black"
             android:text="Samsung s20 Ultra plus"
             android:textSize="22sp"
         />
@@ -39,32 +38,42 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
                 >
+
                 <TextView
-                    android:id="@+id/tv_kerjaan"
+                    android:id="@+id/phI"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pengerjaan: "
+                    android:textStyle="bold"
+                    android:layout_gravity="start"
+                    android:text="IN: "
                     android:textSize="20sp"
                     />
-            <TextView
-                android:id="@+id/d_kerjaan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:text="IBNU"
-                android:textSize="20sp"
-                />
-
         <TextView
             android:id="@+id/d_tgl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:layout_marginStart="50dp"
             android:layout_gravity="start"
-            android:textColor="@color/black"
             android:text="31/12/2022"
+            android:textSize="20sp"
+            />
+                <TextView
+                    android:id="@+id/phO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_gravity="start"
+                    android:text="Out: "
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    />
+        <TextView
+            android:id="@+id/d_tglK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:text=""
             android:textSize="20sp"
             />
         </LinearLayout>
@@ -76,12 +85,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Deskripsi"
-            android:textSize="20dp"/>
+            android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
+        <TextView
+            android:id="@+id/tv_kerjaan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kerjaan: "
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/d_kerjaan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="IBNU"
+            android:textSize="20sp"
+            />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/tv_penerima"

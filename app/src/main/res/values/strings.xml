@@ -30,7 +30,8 @@
     <string name="t_Status">STATUS</string>
     <string name="t_Kerjaan">Pengerjaan</string>
     <string name="h_penerima">Masukan Nama Penerima</string>
-    <string name="h_date">Masukan Tanggal</string>
+    <string name="h_date">Tanggal Masuk</string>
+    <string name="h_dateK">Tanggal Keluar</string>
     <string name="h_hp">Masukan Type HP</string>
     <string name="h_rsk">Masukan Jenis Kerusakan</string>
     <string name="h_hrg">Masukan Harga</string>

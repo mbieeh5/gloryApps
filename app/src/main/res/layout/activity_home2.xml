@@ -15,6 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <ImageView
             android:id="@+id/backbtn"
             android:layout_width="40dp"
@@ -23,15 +24,13 @@
             android:focusable="true"
             android:background="@drawable/ic_baseline_arrow_back_24"/>
 
-    <SearchView
-        android:id="@+id/searchItem"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:queryHint="Cari Type HP"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Silahkan Pilih Tanggal"/>
 
         <androidx.constraintlayout.utils.widget.ImageFilterButton
             android:id="@+id/filterButton"
@@ -51,7 +50,8 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/toolbar">
+    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView_service"

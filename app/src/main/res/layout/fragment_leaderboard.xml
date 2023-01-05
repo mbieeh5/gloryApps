@@ -25,7 +25,6 @@
             android:padding="5dp"
             android:textStyle="bold"
             android:text="LEADERBOARD"
-            android:textColor="@color/white"
             android:textSize="40dp"
             android:textAlignment="center"
             >
@@ -36,7 +35,6 @@
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:text="TopFrag : "
-            android:textColor="@color/white"
             android:textSize="30dp"
             >
         </TextView>
@@ -48,7 +46,6 @@
             android:padding="5dp"
             android:textStyle="bold"
             android:text="seli"
-            android:textColor="@color/white"
             android:textSize="30dp"
             >
         </TextView>

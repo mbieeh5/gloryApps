@@ -57,8 +57,9 @@ public class FragmentHome extends Fragment {
         mdb.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String sts = (String) snapshot.getValue();
+                String sts = (String) snapshot.getChildren().toString();
                 if (snapshot.exists()) {
+                    Toast.makeText(getContext(), "ada", Toast.LENGTH_SHORT).show();
                     if (sts.equals("LUNAS")) {
                         Map<String, Objects> map = (Map<String, Objects>) snapshot.getChildren();
                         Objects pointmentah = map.get("LUNAS");
@@ -66,6 +67,8 @@ public class FragmentHome extends Fragment {
                         int sum = Mvalue * 5000;
                         point.setText(String.valueOf(sum));
                     }
+                }else {
+                    Toast.makeText(getContext(), "gagal Memuat Total Point", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

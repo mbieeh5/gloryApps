@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical">
 
 
@@ -16,7 +15,6 @@
         android:text="@string/tv_edit"
         android:textStyle="bold"
         android:textSize="35sp"
-        android:textColor="@color/white"
         android:background="@color/orange_base_50"
         android:gravity="center"
         />
@@ -39,6 +37,30 @@
 
         />
 </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cveTglK"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        >
+
+        <TextView
+            android:id="@+id/eTglK"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:hint="Tanggal Keluar"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2sp"/>
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="fill_parent"
@@ -134,7 +156,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         app:hintTextColor="#000">

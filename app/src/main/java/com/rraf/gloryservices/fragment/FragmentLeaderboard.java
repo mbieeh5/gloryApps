@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,13 +25,16 @@ import com.rraf.gloryservices.adaptor.AdapteLeaderBoard;
 import com.rraf.gloryservices.adaptor.LeaderboardClass;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class FragmentLeaderboard extends Fragment {
 
     RecyclerView recv;
     AdapteLeaderBoard adapter;
     ArrayList<LeaderboardClass> lists;
-    DatabaseReference db;
+    DatabaseReference db, dbS;
 
     public FragmentLeaderboard() {
         // Required empty public constructor
@@ -45,6 +50,7 @@ public class FragmentLeaderboard extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        pointSystem();
         TextView topf = view.findViewById(R.id.tv_top);
         topf.setText("-");
         db = FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima");
@@ -57,6 +63,7 @@ public class FragmentLeaderboard extends Fragment {
         db.orderByChild("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lists.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     lists.add(ds.getValue(LeaderboardClass.class));
                     adapter.notifyDataSetChanged();
@@ -68,5 +75,18 @@ public class FragmentLeaderboard extends Fragment {
 
             }
         });
+    }
+    public void pointSystem(){
+        int point = 5000;
+        Map<String, Object> map = new HashMap<>();
+        map.put("point",point);
+        db = FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima");
+        dbS = FirebaseDatabase.getInstance().getReference("Service").child("dataService");
+            if(dbS.child("iStatus").get().toString().equals("LUNAS")){
+                db.child(dbS.child("iPenerima").get().toString()).updateChildren(map);
+                Toast.makeText(getContext(), "Point Berhasil di tambahkan", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(getContext(), "gagal memuat Point", Toast.LENGTH_SHORT).show();
+            }
     }
 }

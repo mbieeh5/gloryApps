@@ -47,25 +47,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         />
-
-    <EditText
-        android:id="@+id/iTgl"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTgl"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:ems="10"
-        android:clickable="true"
-        android:hint="@string/h_date"
-        android:inputType="date"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_date"
-        android:autofillHints=""
-        android:focusable="true" />
+        >
+    <TextView
+        android:id="@+id/iTgl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text=""
+        android:hint="@string/h_date"
+        />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tv_hp"
@@ -76,7 +83,7 @@
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iTgl"
+        app:layout_constraintTop_toBottomOf="@+id/cvTgl"
         />
 
     <EditText

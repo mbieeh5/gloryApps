@@ -36,6 +36,7 @@ public class AdapterDataServiceHistory extends RecyclerView.Adapter<AdapterDataS
     public void onBindViewHolder(@NonNull AdapterDataServiceHistory.DataViewHolder holder, int position) {
         OutputClass oc = list.get(position);
         holder.oTgl.setText(oc.getiTgl());
+        holder.oTglK.setText(oc.getiTglK());
         holder.oKerjaan.setText(oc.getiKerjaan());
         holder.oHp.setText(oc.getiHp());
         holder.oRsk.setText(oc.getiRsk());
@@ -51,6 +52,7 @@ public class AdapterDataServiceHistory extends RecyclerView.Adapter<AdapterDataS
             holder.ostatusTxt.setBackgroundColor(Color.rgb(255, 0 ,0));
         }else{
             holder.ostatusTxt.setText("PROSES");
+            holder.ostatusTxt.setBackgroundColor(Color.rgb(245,130,22));
         }
     }
 
@@ -61,10 +63,11 @@ public class AdapterDataServiceHistory extends RecyclerView.Adapter<AdapterDataS
 
     public static class DataViewHolder extends RecyclerView.ViewHolder{
 
-        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oKerjaan, ostatusTxt ;
+        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oKerjaan, ostatusTxt, oTglK ;
 
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
+        oTglK = itemView.findViewById(R.id.d_tglK);
         oPenerima = itemView.findViewById(R.id.d_terima);
         oKerjaan = itemView.findViewById(R.id.d_kerjaan);
         oTgl = itemView.findViewById(R.id.d_tgl);

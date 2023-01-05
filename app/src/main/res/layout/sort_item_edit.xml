@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical">
 
 
@@ -16,8 +15,7 @@
         android:text="@string/tv_edit"
         android:textStyle="bold"
         android:textSize="35sp"
-        android:textColor="@color/white"
-        android:background="@color/orange_base_50"
+        android:background="@color/orange_base_250"
         android:gravity="center"
         />
 
@@ -43,6 +41,9 @@
         </androidx.cardview.widget.CardView>
 
 </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
 
     <Button
         android:id="@+id/btnCariType"

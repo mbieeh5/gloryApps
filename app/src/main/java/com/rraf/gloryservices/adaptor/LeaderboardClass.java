@@ -1,13 +1,13 @@
 package com.rraf.gloryservices.adaptor;
 
 public class LeaderboardClass {
-    String nama, point;
-
+    String nama;
+    Integer point;
     public LeaderboardClass(){
 
     }
 
-    public LeaderboardClass(String nama, String point) {
+    public LeaderboardClass(String nama, Integer point) {
         this.nama = nama;
         this.point = point;
     }
@@ -20,11 +20,11 @@ public class LeaderboardClass {
         this.nama = nama;
     }
 
-    public String getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
-    public void setPoint(String point) {
+    public void setPoint(Integer point) {
         this.point = point;
     }
 }

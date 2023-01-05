@@ -4,14 +4,16 @@ import android.view.ViewGroup;
 
 public class OutputClass {
 
-    String iHp, iRsk, iTgl, iMdl, iHrg, iPenerima, iStatus, id, iKerjaan;
+    String iHp, iRsk, iTgl, iMdl, iHrg, iPenerima, iStatus, id, iKerjaan, iTglK;
 
     public OutputClass(){
 
     }
-    public OutputClass(String id, String iTgl, String iHp, String iRsk, String iMdl, String iHrg, String iPenerima,String iStatus, String iKerjaan) {
+
+    public OutputClass(String id, String iTgl, String iTglK, String iHp, String iRsk, String iMdl, String iHrg, String iPenerima,String iStatus, String iKerjaan) {
             this.id = id;
             this.iTgl = iTgl;
+            this.iTglK = iTglK;
             this.iMdl = iMdl;
             this.iHp = iHp;
             this.iRsk = iRsk;
@@ -21,9 +23,14 @@ public class OutputClass {
             this.iKerjaan = iKerjaan;
     }
 
+    public String getiTglK(){
+        return iTglK;
+    }
+
     public String getiMdl(){
         return iMdl;
     }
+
     public String getiKerjaan(){
         return iKerjaan;
     }

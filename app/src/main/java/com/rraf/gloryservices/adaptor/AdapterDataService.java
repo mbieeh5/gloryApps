@@ -18,22 +18,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.DialogFragment;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.core.UserData;
 import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.DialogPlusBuilder;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.rraf.gloryservices.R;
-import com.rraf.gloryservices.activity.AddActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Formatter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.DataViewHolder> {
@@ -44,6 +41,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
     ArrayAdapter<String> adapter;
     String[] items = {"LUNAS", "CANCELED" };
     String[] itemP = {"AMRI", "IBNU" };
+
 
     public AdapterDataService(Context context, ArrayList<OutputClass> list) {
         this.context = context;
@@ -61,6 +59,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
     public void onBindViewHolder(@NonNull AdapterDataService.DataViewHolder holder, int position) {
         OutputClass oc = list.get(position);
         holder.oTgl.setText(oc.getiTgl());
+        holder.oTglK.setText(oc.getiTglK());
         holder.oKerjaan.setText(oc.getiKerjaan());
         holder.oHp.setText(oc.getiHp());
         holder.oRsk.setText(oc.getiRsk());
@@ -68,6 +67,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         holder.oMdl.setText(oc.getiMdl());
         holder.oPenerima.setText(oc.getiPenerima());
         holder.oCuan.setText(" ");
+
         if(Objects.equals(oc.iStatus, "LUNAS")) {
             holder.eBtn.setText(oc.iStatus);
             holder.eBtn.setTextColor(Color.rgb(255,255,255));
@@ -81,10 +81,11 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         }else{
             holder.eBtn.setText("EDIT");
             holder.eBtn.setEnabled(true);
+            holder.eBtn.setBackgroundColor(Color.rgb(245,130,22));
             holder.eBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showUpdateDialog(oc.getId(), oc.getiTgl(), oc.getiHp(), oc.getiRsk(), oc.getiMdl(), oc.getiHrg(), oc.getiPenerima(), oc.getiStatus(), oc.getiKerjaan());
+                    showUpdateDialog(oc.getId(), oc.getiTgl(), oc.getiTglK(), oc.getiHp(), oc.getiRsk(), oc.getiMdl(), oc.getiHrg(), oc.getiPenerima(), oc.getiStatus(), oc.getiKerjaan());
                 }
             });
         }
@@ -95,21 +96,23 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         return list.size();
     }
 
-    private void showUpdateDialog(String Id, String iTgl, String iHp, String iRsk,String iMdl, String iHrg, String iPenerima, String iStatus, String iKerjaan){
+    private void showUpdateDialog(String Id, String iTgl, String iTglK, String iHp, String iRsk,String iMdl, String iHrg, String iPenerima, String iStatus, String iKerjaan){
         DialogPlus dialogPlus = DialogPlus.newDialog(context)
-                .setGravity(Gravity.CENTER)
-                .setMargin(50,0,50,0)
+                .setGravity(Gravity.BOTTOM)
+                .setMargin(0,0,0,0)
                 .setContentHolder(new ViewHolder(R.layout.edit_list_layout))
                 .setExpanded(false)
                 .create();
         View a = (LinearLayout) dialogPlus.getHolderView();
 
         EditText eTgl = a.findViewById(R.id.eTgl);
+        CardView cTglK = a.findViewById(R.id.cveTglK);
+        TextView eTglK = a.findViewById(R.id.eTglK);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
-        eTgl.setOnClickListener(new View.OnClickListener() {
+        cTglK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog =  new DatePickerDialog(
@@ -118,7 +121,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
                         String date = day+"/"+month+"/"+year;
-                        eTgl.setText(date);
+                        eTglK.setText(date);
                     }
                 },year,month,day);
                 datePickerDialog.show();
@@ -158,7 +161,6 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         });
 
         Button btnSimpan = a.findViewById(R.id.btnSimpan);
-        dialogPlus.show();
         eTgl.setText(iTgl);
         eHp.setText(iHp);
         eRsk.setText(iRsk);
@@ -166,12 +168,13 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         eTerima.setText(iPenerima);
         eKerjaan.setText(iKerjaan);
         eStatus.setText(iStatus);
-
-
+        eTglK.setText(iTglK);
+        dialogPlus.show();
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newTgl = eTgl.getText().toString();
+                String newTglK = eTglK.getText().toString();
                 String newHp = eHp.getText().toString();
                 String newRsk = eRsk.getText().toString();
                 String newMdl = eMdl.getText().toString();
@@ -180,20 +183,17 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
                 String newKerjaan = eKerjaan.getText().toString();
                 String newStatus = eStatus.getText().toString();
                 db = FirebaseDatabase.getInstance().getReference("Service");
-                if(newTgl.isEmpty() || newHp.isEmpty() || newRsk.isEmpty() || newHrg.isEmpty() || newTerima.isEmpty() || newStatus.isEmpty() || newKerjaan.isEmpty()){
-                    Toast.makeText(context, "Pastikan Data Terisi Semua", Toast.LENGTH_SHORT).show();
-                }else {
-                    db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newHp, newRsk,newMdl, newHrg, newTerima, newStatus, newKerjaan));
-                Toast.makeText(context, "Data Berhasil Di Simpan", Toast.LENGTH_SHORT).show();
-                dialogPlus.dismiss();
-                }
+                    db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newTglK, newHp, newRsk,newMdl, newHrg, newTerima, newStatus, newKerjaan));
+                    Toast.makeText(context, "Data Berhasil Di Simpan", Toast.LENGTH_SHORT).show();
+                    adapter.notifyDataSetChanged();
+                    dialogPlus.dismiss();
             }
         });
     }
 
     public static class DataViewHolder extends RecyclerView.ViewHolder{
 
-        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oMdl, oCuan, oKerjaan;
+        TextView oTgl, oHp, oRsk, oHrg, oPenerima, oMdl, oCuan, oKerjaan, oTglK;
         Button eBtn;
 
         public DataViewHolder(@NonNull View itemView) {
@@ -201,6 +201,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
         oPenerima = itemView.findViewById(R.id.d_terima);
         oKerjaan = itemView.findViewById(R.id.d_kerjaan);
         oTgl = itemView.findViewById(R.id.d_tgl);
+        oTglK = itemView.findViewById(R.id.d_tglK);
         oHp = itemView.findViewById(R.id.d_hp);
         oRsk = itemView.findViewById(R.id.d_rsk);
         oMdl = itemView.findViewById(R.id.d_mdl);
