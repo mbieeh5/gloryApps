@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:id="@+id/cv"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/phI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama: "
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/d_namaTf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Rafi Anggoro"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+                <TextView
+                    android:id="@+id/tv_kerjaan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bank: "
+                    android:textSize="20sp"
+                    />
+            <TextView
+                android:id="@+id/d_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="MANDIRI"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/tvtgl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal: "
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/d_tglTf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="26/04/1999"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_noRek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NoRek: "
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/d_noRek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="16721721721765"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_punya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Punya: "
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/d_punya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Downline"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_hrg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Nominal: "
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/tv_Rp_hrg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/d_nominal"
+            android:text="Rp "
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/d_nominal"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/editBtnTf"
+            android:enabled="true"
+            android:textSize="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

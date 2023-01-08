@@ -183,7 +183,7 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
                 String newKerjaan = eKerjaan.getText().toString();
                 String newStatus = eStatus.getText().toString();
                 db = FirebaseDatabase.getInstance().getReference("Service");
-                    db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newTglK, newHp, newRsk,newMdl, newHrg, newTerima, newStatus, newKerjaan));
+                db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newTglK, newHp, newRsk,newMdl, newHrg, newTerima, newStatus, newKerjaan));
                     Toast.makeText(context, "Data Berhasil Di Simpan", Toast.LENGTH_SHORT).show();
                     adapter.notifyDataSetChanged();
                     dialogPlus.dismiss();

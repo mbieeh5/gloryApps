@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="@string/tv_edit"
+        android:text="EDIT TRANSFER"
         android:textStyle="bold"
         android:textSize="35sp"
         android:background="@color/orange_base_50"
@@ -39,33 +39,6 @@
 
         />
 </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cveTglK"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
-        app:cardBackgroundColor="@android:color/background_light"
-        >
-        <TextView
-        android:textColorHint="@color/black"
-            android:id="@+id/eTglK"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/black"
-            android:hint="Tanggal Keluar"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            />
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="2sp"/>
-    </androidx.cardview.widget.CardView>
-
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -74,13 +47,13 @@
         android:textColorHint="@color/black">
 
         <EditText
-            android:id="@+id/eHp"
+            android:id="@+id/eBank"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:textColor="@color/black"
             android:enabled="false"
-            android:hint="@string/h_hp"
+            android:hint="Bank tujuan"
             android:inputType="text"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,12 +66,13 @@
         android:textColorHint="@color/black">
 
         <EditText
-            android:id="@+id/eRsk"
+            android:id="@+id/eNama"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:textColor="@color/black"
-            android:hint="@string/h_rsk"
+            android:enabled="false"
+            android:hint="Nama Tujuan"
             android:inputType="text"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -108,15 +82,14 @@
         android:layout_margin="5dp"
         app:boxBackgroundColor="@android:color/background_light"
         android:textColorHint="@color/black">
-
         <EditText
-            android:id="@+id/eMdl"
+            android:id="@+id/eNorek"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:textColor="@color/black"
-            android:enabled="true"
-            android:hint="@string/h_mdl"
+            android:enabled="false"
+            android:hint="Nomor Rekening Tujuan"
             android:inputType="number"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -127,14 +100,13 @@
         app:boxBackgroundColor="@android:color/background_light"
         android:textColorHint="@color/black"
         >
-
         <EditText
-            android:id="@+id/eHrg"
+            android:id="@+id/eNom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:textColor="@color/black"
-            android:hint="@string/h_hrg"
+            android:hint="Nominal Transfer"
             android:inputType="number"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -146,35 +118,16 @@
         android:textColorHint="@color/black"
         app:hintTextColor="#000">
         <EditText
-            android:id="@+id/eTerima"
+            android:id="@+id/eTfMana"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:textColor="@color/black"
             android:enabled="false"
-            android:hint="@string/h_terima"
+            android:hint="Transferan Punya"
             android:inputType="text"
             android:textSize="15sp"/>
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tvkerjaan"
-        android:padding="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@android:color/background_light"
-        android:textColorHint="@color/black"
-        android:hint="@string/t_Kerjaan"
-        app:layout_constraintTop_toBottomOf="@+id/iHrg"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-        <AutoCompleteTextView
-            android:id="@+id/eKerjaan"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="none"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             app:boxBackgroundColor="@android:color/background_light"
             android:textColorHint="@color/black"
@@ -194,7 +147,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnSimpan"
+        android:id="@+id/btnSimpanTf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

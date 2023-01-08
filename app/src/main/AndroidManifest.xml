@@ -17,6 +17,14 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".activity.AddTransferActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".activity.EditTransferActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".activity.HomeActivity"
             android:exported="false">
         </activity>

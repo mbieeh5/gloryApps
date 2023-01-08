@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AddTransferActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-50dp"
+        android:text="Input Transferan"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/t_date"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTgl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:ems="10"
+        android:minHeight="48dp"
+        >
+    <TextView
+        android:id="@+id/iTgl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text=""
+        android:hint="Tanggal Transfer"
+        />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_bank"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Bank"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvTgl"
+        />
+
+    <EditText
+        android:id="@+id/iBank"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:hint="masukan nama bank"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bank" />
+
+    <TextView
+        android:id="@+id/tv_hp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iBank"
+        />
+
+    <EditText
+        android:id="@+id/iNama"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:hint="masukan nama tujuan"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hp" />
+
+    <TextView
+        android:id="@+id/tv_rsk"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="noRek tujuan"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iNama"
+        />
+
+    <EditText
+        android:id="@+id/iNorek"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:hint="Nomor Rekening Tujuan"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rsk" />
+
+    <TextView
+        android:id="@+id/tv_hrg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Nominal TF"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iNorek"
+        />
+
+    <EditText
+        android:id="@+id/iNom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:hint="Nominal Transfer"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hrg" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvPenerima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transferan Siapa?"
+        app:layout_constraintTop_toBottomOf="@+id/iNom"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/autoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="100dp"
+        android:minHeight="50dp"
+        android:minWidth="100dp"
+        android:text="@string/b_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPenerima" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

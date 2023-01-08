@@ -132,21 +132,50 @@
 
     </androidx.cardview.widget.CardView>
 
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divBates2"
+        android:layout_width="match_parent"
+        app:dividerColor="@color/orange_base_250"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/fl_home"
+        />
 
-
-
+    <!-- Service Section -->
+    <TextView
+        android:id="@+id/tvService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/divBates2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="SERVICE"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintStart_toEndOf="@id/tvService"
+        app:layout_constraintTop_toBottomOf="@id/divBates2"
+        android:backgroundTint="@color/orange_base_250"
+        android:background="@drawable/ic_baseline_services"
+        />
     <androidx.cardview.widget.CardView
         android:id="@+id/cvInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fl_home">
+        app:layout_constraintEnd_toStartOf="@id/cvEdit"
+        app:layout_constraintTop_toBottomOf="@+id/tvService">
 
         <Button
             android:id="@+id/btnInput"
@@ -161,19 +190,19 @@
             android:paddingTop="45dp"
             android:text="INPUT" />
     </androidx.cardview.widget.CardView>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cvEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:layout_constraintStart_toEndOf="@+id/cvInput"
-        app:layout_constraintTop_toBottomOf="@+id/fl_home">
+        app:layout_constraintEnd_toStartOf="@id/cvMutasi"
+        app:layout_constraintTop_toBottomOf="@+id/tvService">
 
         <Button
             android:id="@+id/btnEdit"
@@ -188,5 +217,180 @@
             android:paddingTop="45dp"
             android:text="EDIT" />
     </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMutasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toEndOf="@+id/cvEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvService">
 
+        <Button
+            android:id="@+id/btnMutasi"
+            android:padding="5dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_mutasi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="45dp"
+            android:text="Mutasi" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Transfer Section -->
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divBates"
+        android:layout_width="360dp"
+        app:dividerColor="@color/orange_base_250"
+        android:layout_height="4dp"
+        android:layout_marginTop="125dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fl_home"/>
+    <TextView
+        android:id="@+id/tvTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divBates"
+        android:text="TRANSFER"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@id/divBates"
+        app:layout_constraintStart_toEndOf="@id/tvTransfer"
+        android:backgroundTint="@color/orange_base_250"
+        android:background="@drawable/ic_baseline_transferan"
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvInputTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cvEditTf"
+        app:layout_constraintTop_toBottomOf="@+id/tvTransfer">
+
+        <Button
+            android:id="@+id/btnInputTf"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_add_transferan" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="45dp"
+            android:text="INPUT" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEditTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toEndOf="@+id/cvInputTf"
+        app:layout_constraintEnd_toStartOf="@id/cvMutasiTf"
+        app:layout_constraintTop_toBottomOf="@+id/tvTransfer">
+
+        <Button
+            android:id="@+id/btnEditTf"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_edit_transferan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="45dp"
+            android:text="EDIT" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMutasiTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toEndOf="@+id/cvEditTf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTransfer">
+
+        <Button
+            android:id="@+id/btnMutasiTf"
+            android:padding="5dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_mutasi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="45dp"
+            android:text="Mutasi" />
+    </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="400dp"
+            android:layout_height="250dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvMutasiTf"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            app:cardBackgroundColor="@color/orange_base_50"
+            app:cardCornerRadius="40dp"
+            >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEasterEgg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="40dp"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/tvEasterEgg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="9dp"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

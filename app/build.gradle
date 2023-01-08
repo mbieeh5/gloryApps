@@ -12,7 +12,7 @@ android {
         minSdk 25
         targetSdk 33
         versionCode 6
-        versionName "6.0.48-Latest"
+        versionName "7.12.50-beta"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

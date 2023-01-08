@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GloryServices</string>
+    <string name="app_name">GloryApps</string>
     <!-- Strings related to login -->
     <string name="login_form">Login</string>
     <string name="login_form_email">Email</string>
