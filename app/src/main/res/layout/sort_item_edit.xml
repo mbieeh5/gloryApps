@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="@string/tv_edit"
+        android:text="@string/pencarian"
         android:textStyle="bold"
         android:textSize="35sp"
         android:background="@color/orange_base_250"
@@ -36,7 +35,7 @@
         android:text=""
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:hint="Pilih Tanggal"
+        android:hint="@string/pilih_tanggal"
         android:textSize="20sp"/>
         </androidx.cardview.widget.CardView>
 
@@ -51,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:backgroundTint="@color/orange_base_100"
-        android:text="Type Hp A - Z"
+        android:text="@string/type_hp_a_z"
         android:layout_gravity="start"
         />
 
@@ -61,7 +60,7 @@
         android:layout_height="50dp"
         android:layout_margin="5dp"
         android:textSize="23sp"
-        android:text="cari"
+        android:text="@string/cari"
         android:layout_gravity="end"
         />
 

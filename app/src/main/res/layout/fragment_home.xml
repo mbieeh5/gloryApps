@@ -69,14 +69,15 @@
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:background="@drawable/ic_baseline_person_24"/>
+                        android:background="@drawable/ic_baseline_person_24"
+                        android:contentDescription="@string/pp" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/tv_nama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Richard Anderson"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
@@ -89,7 +90,7 @@
                     android:id="@+id/point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TotalPoint : "
+                    android:text="@string/totalpoint"
                     android:textStyle="bold"
                     android:layout_marginStart="10dp"
                     app:layout_constraintTop_toBottomOf="@id/tv_nama"
@@ -99,7 +100,7 @@
                     android:id="@+id/pointtxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text=""
                     android:textStyle="bold"
                     android:layout_marginStart="10dp"
                     app:layout_constraintTop_toBottomOf="@id/tv_nama"
@@ -110,7 +111,7 @@
                     android:id="@+id/tvPeringkat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Peringkat"
+                    android:text="@string/peringkat"
                     android:layout_margin="20dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text=""
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="41dp"
@@ -151,7 +152,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toBottomOf="@id/divBates2"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="SERVICE"
+        android:text="@string/service"
         />
     <ImageView
         android:layout_width="wrap_content"
@@ -162,7 +163,7 @@
         app:layout_constraintTop_toBottomOf="@id/divBates2"
         android:backgroundTint="@color/orange_base_250"
         android:background="@drawable/ic_baseline_services"
-        />
+        android:contentDescription="@string/title" />
     <androidx.cardview.widget.CardView
         android:id="@+id/cvInput"
         android:layout_width="wrap_content"
@@ -188,7 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="INPUT" />
+            android:text="@string/input" />
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cvEdit"
@@ -215,7 +216,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="EDIT" />
+            android:text="@string/edit" />
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cvMutasi"
@@ -244,7 +245,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="Mutasi" />
+            android:text="@string/mutasi" />
     </androidx.cardview.widget.CardView>
 
     <!-- Transfer Section -->
@@ -267,7 +268,7 @@
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divBates"
-        android:text="TRANSFER"/>
+        android:text="@string/transfer"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -277,7 +278,7 @@
         app:layout_constraintStart_toEndOf="@id/tvTransfer"
         android:backgroundTint="@color/orange_base_250"
         android:background="@drawable/ic_baseline_transferan"
-        />
+        android:contentDescription="@string/title" />
     <androidx.cardview.widget.CardView
         android:id="@+id/cvInputTf"
         android:layout_width="wrap_content"
@@ -303,7 +304,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="INPUT" />
+            android:text="@string/input" />
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cvEditTf"
@@ -330,7 +331,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="EDIT" />
+            android:text="@string/edit" />
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cvMutasiTf"
@@ -359,7 +360,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="Mutasi" />
+            android:text="@string/mutasi" />
     </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_width="400dp"
@@ -371,7 +372,6 @@
             app:cardBackgroundColor="@color/orange_base_50"
             app:cardCornerRadius="40dp"
             >
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cvEasterEgg"
             android:layout_width="match_parent"
@@ -379,17 +379,11 @@
             app:cardCornerRadius="40dp"
             android:layout_margin="10dp">
 
-            <TextView
-                android:id="@+id/tvEasterEgg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="9dp"
-                android:gravity="center_horizontal"
-                android:text=""
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/content_photo1"
+            android:contentDescription="@string/content" />
         </androidx.cardview.widget.CardView>
 
         </androidx.cardview.widget.CardView>

@@ -25,7 +25,7 @@
             android:id="@+id/phI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama: "
+            android:text="@string/nama"
             android:textSize="20sp"
             />
         <TextView
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Rafi Anggoro"
+            android:text="@string/rafi_anggoro"
             android:textSize="20sp"
             />
     </LinearLayout>
@@ -46,7 +46,7 @@
                     android:id="@+id/tv_kerjaan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bank: "
+                    android:text="@string/bank"
                     android:textSize="20sp"
                     />
             <TextView
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="MANDIRI"
+                android:text="@string/mandiri"
                 android:textSize="20sp"
                 />
         </LinearLayout>
@@ -66,13 +66,13 @@
                 android:id="@+id/tvtgl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal: "
+                android:text="@string/tanggal"
                 android:textSize="20sp"/>
             <TextView
                 android:id="@+id/d_tglTf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="26/04/1999"
+                android:text="@string/_26_04_1999"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 />
@@ -86,7 +86,7 @@
                 android:id="@+id/tv_noRek"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NoRek: "
+                android:text="@string/norek"
                 android:textSize="20sp"
                 />
             <TextView
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="16721721721765"
+                android:text="@string/_16721721721765"
                 android:textSize="20sp"
                 />
         </LinearLayout>
@@ -106,7 +106,7 @@
                 android:id="@+id/tv_punya"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Punya: "
+                android:text="@string/punya"
                 android:textSize="20sp"
                 />
             <TextView
@@ -114,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Downline"
+                android:text="@string/downline"
                 android:textSize="20sp"
                 />
         </LinearLayout>
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Nominal: "
+            android:text="@string/nominal"
             android:textSize="20sp"
             />
         <TextView
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@id/d_nominal"
-            android:text="Rp "
+            android:text="@string/rp"
             android:textSize="20sp"
             />
         <TextView
@@ -159,10 +159,10 @@
         <Button
             android:id="@+id/editBtnTf"
             android:enabled="true"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Edit"
+            android:text="@string/edit"
             />
         </LinearLayout>
 

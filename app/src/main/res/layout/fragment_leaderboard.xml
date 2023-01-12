@@ -24,8 +24,8 @@
             android:layout_gravity="center_horizontal"
             android:padding="5dp"
             android:textStyle="bold"
-            android:text="LEADERBOARD"
-            android:textSize="40dp"
+            android:text="@string/leaderboard"
+            android:textSize="40sp"
             android:textAlignment="center"
             >
         </TextView>
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
-            android:text="TopFrag : "
-            android:textSize="30dp"
+            android:text="@string/topfrag"
+            android:textSize="30sp"
             >
         </TextView>
         <TextView
@@ -45,8 +45,8 @@
             android:layout_gravity="center"
             android:padding="5dp"
             android:textStyle="bold"
-            android:text="seli"
-            android:textSize="30dp"
+            android:text="@string/seli"
+            android:textSize="30sp"
             >
         </TextView>
 

@@ -23,6 +23,46 @@ public class OutputClass {
             this.iKerjaan = iKerjaan;
     }
 
+    public void setiHp(String iHp) {
+        this.iHp = iHp;
+    }
+
+    public void setiRsk(String iRsk) {
+        this.iRsk = iRsk;
+    }
+
+    public void setiTgl(String iTgl) {
+        this.iTgl = iTgl;
+    }
+
+    public void setiMdl(String iMdl) {
+        this.iMdl = iMdl;
+    }
+
+    public void setiHrg(String iHrg) {
+        this.iHrg = iHrg;
+    }
+
+    public void setiPenerima(String iPenerima) {
+        this.iPenerima = iPenerima;
+    }
+
+    public void setiStatus(String iStatus) {
+        this.iStatus = iStatus;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setiKerjaan(String iKerjaan) {
+        this.iKerjaan = iKerjaan;
+    }
+
+    public void setiTglK(String iTglK) {
+        this.iTglK = iTglK;
+    }
+
     public String getiTglK(){
         return iTglK;
     }

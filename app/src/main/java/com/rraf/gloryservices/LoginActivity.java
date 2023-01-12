@@ -31,6 +31,12 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Toast.makeText(this, "gagal kembali", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);

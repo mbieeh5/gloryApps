@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="WARDAH"
+            android:text="@string/wardah"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:textStyle="bold"
-            android:text="Point: "
+            android:text="@string/point"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/d_point"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
             android:layout_marginEnd="3dp"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:text="999999"
+            android:text="@string/_999999"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

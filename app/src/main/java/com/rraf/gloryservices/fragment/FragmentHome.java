@@ -30,9 +30,12 @@ import com.rraf.gloryservices.activity.AddActivity;
 import com.rraf.gloryservices.activity.AddTransferActivity;
 import com.rraf.gloryservices.activity.EditTransferActivity;
 import com.rraf.gloryservices.activity.HomeActivity;
+import com.rraf.gloryservices.adaptor.OutputClass;
 
 import org.w3c.dom.Text;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -59,42 +62,45 @@ public class FragmentHome extends Fragment {
         btnInputTf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityInputTf();
+                //ActivityInputTf();
+                Toast.makeText(getContext(), "Coming Soon!", Toast.LENGTH_SHORT).show();
             }
         });
         Button btnEditTf = view.findViewById(R.id.btnEditTf);
         btnEditTf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityEditTf();
+                //ActivityEditTf();
+                Toast.makeText(getContext(), "Coming Soon!", Toast.LENGTH_SHORT).show();
             }
         });
-        Button btnMutasi = view.findViewById(R.id.btnMutasi);
-        btnMutasi.setOnClickListener(new View.OnClickListener() {
+        Button btnMutasiTf = view.findViewById(R.id.btnMutasiTf);
+        btnMutasiTf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment(new FragmentHistory());
+                Toast.makeText(getContext(), "ComingSoon", Toast.LENGTH_SHORT).show();
             }
         });
         TextView nama = view.findViewById(R.id.tv_nama);
-        TextView point = view.findViewById(R.id.pointtxt);
-        mdb = FirebaseDatabase.getInstance().getReference("Service").child("dataService").child("iStatus");
-        mdb.addValueEventListener(new ValueEventListener() {
+        TextView points = view.findViewById(R.id.pointtxt);
+        NumberFormat formatter = NumberFormat.getNumberInstance();
+        formatter.setGroupingUsed(true);
+        mdb = FirebaseDatabase.getInstance().getReference("Service").child("dataService");
+        mdb.orderByChild("iStatus").equalTo("LUNAS").addValueEventListener(new ValueEventListener() {
+            int total = 0;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String sts = (String) snapshot.getChildren().toString();
-                if (snapshot.exists()) {
-                    Toast.makeText(getContext(), "ada", Toast.LENGTH_SHORT).show();
-                    if (sts.equals("LUNAS")) {
-                        Map<String, Objects> map = (Map<String, Objects>) snapshot.getChildren();
-                        Objects pointmentah = map.get("LUNAS");
-                        int Mvalue = Integer.parseInt(String.valueOf(pointmentah));
-                        int sum = Mvalue * 5000;
-                        point.setText(String.valueOf(sum));
+                for(DataSnapshot ds : snapshot.getChildren()){
+                OutputClass output = ds.getValue(OutputClass.class);
+                    if(output != null && "LUNAS".equals(output.getiStatus())){
+                        total++;
+                    }else{
+                        points.setText("0");
                     }
-                }else {
-                    Toast.makeText(getContext(), "gagal Memuat Total Point", Toast.LENGTH_SHORT).show();
                 }
+                final int point = (int) (total * 5000);
+                final String pointM = NumberFormat.getNumberInstance(Locale.US).format(point);
+                points.setText(pointM);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -122,13 +128,17 @@ public class FragmentHome extends Fragment {
                         });
                     }
                 }
-
-
-
         btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ActivityAdd();
+            }
+        });
+        Button btnMutasi = view.findViewById(R.id.btnMutasi);
+        btnMutasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new FragmentHistory());
             }
         });
         return view;

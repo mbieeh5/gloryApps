@@ -36,8 +36,7 @@
         android:hint="@string/h_date"
         android:inputType="date"
         android:textSize="15sp"
-
-        />
+        android:autofillHints="" />
 </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.cardview.widget.CardView
@@ -57,13 +56,11 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="@color/black"
-            android:hint="Tanggal Keluar"
+            android:hint="@string/tanggal_keluar"
             android:textStyle="bold"
             android:textSize="15sp"
             />
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="2sp"/>
+
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +79,8 @@
             android:enabled="false"
             android:hint="@string/h_hp"
             android:inputType="text"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -100,7 +98,8 @@
             android:textColor="@color/black"
             android:hint="@string/h_rsk"
             android:inputType="text"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="fill_parent"
@@ -118,7 +117,8 @@
             android:enabled="true"
             android:hint="@string/h_mdl"
             android:inputType="number"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="fill_parent"
@@ -136,7 +136,8 @@
             android:textColor="@color/black"
             android:hint="@string/h_hrg"
             android:inputType="number"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="fill_parent"
@@ -154,7 +155,8 @@
             android:enabled="false"
             android:hint="@string/h_terima"
             android:inputType="text"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:autofillHints="" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

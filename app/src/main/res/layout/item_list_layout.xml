@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Samsung s20 Ultra plus"
+            android:text="@string/samsung_s20_ultra_plus"
             android:textSize="22sp"
         />
             </LinearLayout>
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="IN: "
+                    android:text="@string/in"
                     android:textSize="20sp"
                     />
         <TextView
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="31/12/2022"
+            android:text="@string/_31_12_2022"
             android:textSize="20sp"
             />
                 <TextView
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginStart="30dp"
-                    android:text="OUT: "
+                    android:text="@string/out"
                     android:textSize="20sp"
                     />
         <TextView
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Deskripsi"
+            android:text="@string/deskripsi"
             android:textSize="20sp"/>
 
         <LinearLayout
@@ -91,7 +91,7 @@
                     android:id="@+id/tv_kerjaan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pengerjaan: "
+                    android:text="@string/pengerjaan"
                     android:textSize="20sp"
                     />
             <TextView
@@ -99,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="IBNU"
+                android:text="@string/ibnu"
                 android:textSize="20sp"
                 />
         </LinearLayout>
@@ -112,7 +112,7 @@
                 android:id="@+id/tv_penerima"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Penerima: "
+                android:text="@string/penerima"
                 android:textSize="20sp"
                 />
             <TextView
@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Rraf"
+                android:text="@string/rraf"
                 android:textSize="20sp"
                 />
         </LinearLayout>
@@ -134,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="Ganti LCD sama Pasang Batre sama ganti simtray"
+                android:text="@string/ganti_lcd_sama_pasang_batre_sama_ganti_simtray"
                 android:textSize="20sp"
                 />
         </LinearLayout>
@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="Modal: "
+                android:text="@string/modal"
                 android:textSize="20sp"
                 />
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/d_mdl"
-                android:text="Rp "
+                android:text="@string/rp"
                 android:textSize="20sp"
                 />
             <TextView
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="220.000"
+                android:text="@string/_220_000"
                 android:textSize="20sp"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -185,7 +185,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Harga: "
+            android:text="@string/harga"
             android:textSize="20sp"
             />
         <TextView
@@ -194,7 +194,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@id/d_hrg"
-            android:text="Rp "
+            android:text="@string/rp"
             android:textSize="20sp"
             />
         <TextView
@@ -203,7 +203,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
                 android:layout_height="wrap_content"
-                android:text="220.000"
+                android:text="@string/_220_000"
                 android:textSize="20sp"
                 />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -219,8 +219,8 @@
                 android:id="@+id/total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20.000"
-                android:textSize="20dp"
+                android:text="@string/_20_000"
+                android:textSize="20sp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -231,10 +231,10 @@
         <Button
             android:id="@+id/editBtn"
             android:enabled="true"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Edit"
+            android:text="@string/edit"
             />
         </LinearLayout>
 

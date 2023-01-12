@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rraf.gloryservices.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class AdapteLeaderBoard extends RecyclerView.Adapter<AdapteLeaderBoard.DataViewHolder> {
@@ -31,12 +33,12 @@ public class AdapteLeaderBoard extends RecyclerView.Adapter<AdapteLeaderBoard.Da
         View v = LayoutInflater.from(context).inflate(R.layout.item_list_layout_leaderboard, parent, false);
         return new DataViewHolder(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull AdapteLeaderBoard.DataViewHolder holder, int position) {
         LeaderboardClass oc = list.get(position);
+    String formattedString = NumberFormat.getNumberInstance(Locale.US).format(oc.getPoint());
         holder.oNama.setText(oc.getNama().toString());
-        holder.oPoint.setText(oc.getPoint().toString());
+        holder.oPoint.setText(formattedString);
     }
 
     @Override

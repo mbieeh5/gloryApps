@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +34,13 @@ import com.rraf.gloryservices.R;
 import com.rraf.gloryservices.adaptor.AdapterDataService;
 import com.rraf.gloryservices.adaptor.OutputClass;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity{
 
@@ -48,7 +51,8 @@ public class HomeActivity extends AppCompatActivity{
     ImageView img;
     ImageFilterButton filter;
     SwipeRefreshLayout sr;
-
+    TextView tvAtas;
+    private Integer valueAtas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,7 @@ public class HomeActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 muncul();
+
             }
         });
         recV = findViewById(R.id.recycleView_service);
@@ -79,16 +84,20 @@ public class HomeActivity extends AppCompatActivity{
         list = new ArrayList<>();
         adapter = new AdapterDataService(this, list);
         recV.setAdapter(adapter);
+        final ProgressBar pb = findViewById(R.id.loading);
         sr = findViewById(R.id.refresh);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d/M/yyyy");
         LocalDate tanggals = LocalDate.now();
         String tanggal = tanggals.format(dtf);
         db.orderByChild("iTgl").equalTo(tanggal).addValueEventListener(new ValueEventListener() {
+        int total = 0;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     list.clear();
                 for (DataSnapshot ds : snapshot.getChildren()){
+                    total++;
+                    pb.setVisibility(View.GONE);
                     OutputClass oclass = ds.getValue(OutputClass.class);
                     list.add(oclass);
                     adapter.notifyDataSetChanged();
@@ -99,6 +108,10 @@ public class HomeActivity extends AppCompatActivity{
                             sr.setRefreshing(false);
                         }
                     });
+                        tvAtas = findViewById(R.id.titleAtas);
+                            if(tvAtas != null){
+                                tvAtas.setText(getString(R.string.total_data_service, total));
+                            }
                 }}else{
                     sr.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                         @Override
@@ -146,20 +159,33 @@ public class HomeActivity extends AppCompatActivity{
                 datePickerDialog.show();
             }
         });
+        final ProgressBar pb = findViewById(R.id.loading);
         Button btnCari = a.findViewById(R.id.btnCariType);
         btnCari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                list.removeAll(list);
-                Query query = db.orderByChild("iHp").startAt("Aa").endAt("zZ");
+                pb.setVisibility(View.VISIBLE);
+                Query query = db.orderByChild("iHp");
                 query.addValueEventListener(new ValueEventListener() {
+                int total = 0;
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        pb.setVisibility(View.GONE);
+                        list.clear();
                         for(DataSnapshot ds : snapshot.getChildren()){
                             OutputClass oclass = ds.getValue(OutputClass.class);
-                            list.add(oclass);
-                            dialogPlus.dismiss();
+                            if(oclass != null){
+                                oclass.setiHp(oclass.getiHp().toUpperCase());
+                                list.add(oclass);
+                                total++;
+                            }
+                            tvAtas = findViewById(R.id.titleAtas);
+                                if(tvAtas != null){
+                                    tvAtas.setText(getString(R.string.total_data_service, total));
+                                }
+                        dialogPlus.dismiss();
                         }
+                        adapter.notifyDataSetChanged();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -170,6 +196,7 @@ public class HomeActivity extends AppCompatActivity{
         });
         Button cari = a.findViewById(R.id.btnCari);
         cari.setOnClickListener(new View.OnClickListener() {
+            int total = 0;
             @Override
             public void onClick(View v) {
                 list.removeAll(list);
@@ -182,7 +209,12 @@ public class HomeActivity extends AppCompatActivity{
                             for(DataSnapshot ds : snapshot.getChildren()){
                                 OutputClass oclass = ds.getValue(OutputClass.class);
                                 list.add(oclass);
+                                total++;
                                 dialogPlus.dismiss();
+                            }
+                            tvAtas = findViewById(R.id.titleAtas);
+                            if(tvAtas != null){
+                                tvAtas.setText(getString(R.string.total_data_service, total));
                             }
                         }else {
                             Toast.makeText(HomeActivity.this, "Data Tidak DiTemukan", Toast.LENGTH_SHORT).show();

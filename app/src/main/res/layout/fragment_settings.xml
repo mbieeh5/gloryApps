@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:text="LOGOUT!!!"
+            android:text="@string/logout"
             android:textColor="@color/white"
             android:textSize="60sp" />
 

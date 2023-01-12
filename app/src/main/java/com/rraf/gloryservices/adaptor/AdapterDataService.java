@@ -184,12 +184,14 @@ public class AdapterDataService extends RecyclerView.Adapter<AdapterDataService.
                 String newStatus = eStatus.getText().toString();
                 db = FirebaseDatabase.getInstance().getReference("Service");
                 db.child("dataService").child(Id).setValue(new OutputClass(Id, newTgl, newTglK, newHp, newRsk,newMdl, newHrg, newTerima, newStatus, newKerjaan));
-                    Toast.makeText(context, "Data Berhasil Di Simpan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Data Berhasil Di Simpan", Toast.LENGTH_SHORT).show();
                     adapter.notifyDataSetChanged();
+                    pointSystem.addPoint(newTerima);
                     dialogPlus.dismiss();
             }
         });
     }
+    PointSystem pointSystem = new PointSystem(FirebaseDatabase.getInstance().getReference());
 
     public static class DataViewHolder extends RecyclerView.ViewHolder{
 
