@@ -139,4 +139,25 @@
     <string name="pilih_tanggal">Pilih Tanggal</string>
     <string name="type_hp_a_z">Type Hp A - Z</string>
     <string name="cari">cari</string>
+    <string name="penukaranpoint">TukarPoint</string>
+    <string name="silahkan_pilih_nama">Silahkan Pilih Nama</string>
+    <string name="total_point">TOTAL POINT</string>
+    <string name="_9_999_999">9,999,999</string>
+    <string name="history">history</string>
+    <string name="redeem">Redeem</string>
+    <string name="saldo_shopeepay">SALDO SHOPEEPAY</string>
+    <string name="redeem_point">REDEEM POINT</string>
+    <string name="bantu_teman_kami">BANTU TEMAN KITA</string>
+    <string name="redeem_point_ke">Redeem Point ke %s</string>
+    <string name="masukan_nomor_tujuan">Masukan Nomor Tujuan</string>
+    <string name="masukan_nominal">Masukan Nominal</string>
+    <string name="masukan_nama_peredeem">Masukan Nama PeRedeem</string>
+    <string name="total_point_terredeem">Total Point TerRedeem: %s</string>
+    <string name="history_redeem_point">History Redeem Point</string>
+    <string name="penukaran_ke_shopeepay">Penukaran ke: %s</string>
+    <string name="jumlah_penukaran">Jumlah Penukaran: %s</string>
+    <string name="nomor_tujuan">Nomor Tujuan: %s</string>
+    <string name="sn">SN: %1$d</string>
+    <string name="nama_penukar">Nama Penukar: %s</string>
+    <string name="berhasil">BERHASIL</string>
 </resources>

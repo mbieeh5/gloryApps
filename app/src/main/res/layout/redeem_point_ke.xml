@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.Material3.Dark.Dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/titleRedeem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/redeem_point_ke"
+        android:textStyle="bold"
+        android:textColor="@color/orange_base_1000"
+        android:textSize="25sp"
+        android:background="@color/orange_base_50"
+        android:gravity="center"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvPilihNamaPeRedeem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/black"
+        android:layout_margin="5dp"
+        android:hint="@string/masukan_nama_peredeem"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/atekNamaPeRedeem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:textColorHint="#757575" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:boxBackgroundColor="@android:color/background_light"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/iNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:hint="@string/masukan_nomor_tujuan"
+            android:inputType="phone"
+            android:textSize="15sp"
+            android:autofillHints="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:boxBackgroundColor="@android:color/background_light"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/iNominalPoint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:hint="@string/masukan_nominal"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:autofillHints="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvNominal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/black"
+        android:layout_margin="5dp"
+        android:hint="@string/masukan_nominal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteNominal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            android:textColorHint="#757575" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnRedeem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/redeem"
+        android:layout_gravity="end"
+        />
+
+
+</LinearLayout>

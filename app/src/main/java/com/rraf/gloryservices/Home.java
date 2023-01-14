@@ -14,7 +14,7 @@ import com.rraf.gloryservices.databinding.ActivityHomeBinding;
 import com.rraf.gloryservices.fragment.FragmentHistory;
 import com.rraf.gloryservices.fragment.FragmentHome;
 import com.rraf.gloryservices.fragment.FragmentLeaderboard;
-import com.rraf.gloryservices.fragment.FragmentProfile;
+import com.rraf.gloryservices.fragment.FragmentPoint;
 import com.rraf.gloryservices.fragment.FragmentSettings;
 
 public class Home extends AppCompatActivity {
@@ -36,8 +36,8 @@ public class Home extends AppCompatActivity {
             replaceFragment(new FragmentLeaderboard());
         }else if(id == R.id.n_history){
             replaceFragment(new FragmentHistory());
-        }else if(id == R.id.n_profile){
-            replaceFragment(new FragmentProfile());
+        }else if(id == R.id.n_point){
+            replaceFragment(new FragmentPoint());
         }else if(id == R.id.n_setting){
             replaceFragment(new FragmentSettings());
         }else{

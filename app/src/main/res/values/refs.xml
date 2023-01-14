@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="red_border">#ff0000</drawable>
+    <drawable name="default_border">#00ff00</drawable>
+</resources>

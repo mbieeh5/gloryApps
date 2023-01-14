@@ -17,9 +17,9 @@
         android:title="@string/b_leader"/>
 
     <item
-        android:id="@+id/n_profile"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="@string/b_profile"/>
+        android:id="@+id/n_point"
+        android:icon="@drawable/ic_baseline_card_giftcard_24"
+        android:title="@string/penukaranpoint"/>
 
     <item
         android:id="@+id/n_setting"

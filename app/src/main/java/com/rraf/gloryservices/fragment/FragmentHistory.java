@@ -275,7 +275,4 @@ public class FragmentHistory extends Fragment {
             }
         });
     }
-    private void muncul() {
-
-    }
 }

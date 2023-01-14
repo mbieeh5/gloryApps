@@ -11,9 +11,8 @@ android {
         applicationId "com.rraf.gloryservices"
         minSdk 25
         targetSdk 33
-        versionCode 7
-        versionName "7.16.44-latest"
-
+        versionCode 8
+        versionName "8.21.66-latest"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,4 +47,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }

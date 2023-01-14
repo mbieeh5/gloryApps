@@ -36,9 +36,9 @@ public class AdapteLeaderBoard extends RecyclerView.Adapter<AdapteLeaderBoard.Da
     @Override
     public void onBindViewHolder(@NonNull AdapteLeaderBoard.DataViewHolder holder, int position) {
         LeaderboardClass oc = list.get(position);
-    String formattedString = NumberFormat.getNumberInstance(Locale.US).format(oc.getPoint());
-        holder.oNama.setText(oc.getNama().toString());
+        String formattedString = NumberFormat.getNumberInstance(Locale.US).format(oc.getPoint());
         holder.oPoint.setText(formattedString);
+        holder.oNama.setText(oc.getNama().toString());
     }
 
     @Override
