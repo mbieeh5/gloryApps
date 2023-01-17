@@ -49,7 +49,6 @@ public class FragmentPoint extends Fragment {
 
     ArrayList<OutputRedeemClass> list;
     ArrayList<OutputRedeemDonasiClass> listD;
-    ArrayList<LeaderboardClass> oclass;
     ArrayAdapter<String> adapters;
     AdapterDataRedeem adapter;
     AdapterDataRedeemDonasi adapterD;

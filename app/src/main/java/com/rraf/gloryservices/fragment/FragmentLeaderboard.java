@@ -61,7 +61,6 @@ public class FragmentLeaderboard extends Fragment {
         ref.orderByChild("point").limitToFirst(6).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> topPlayers = new ArrayList<>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String name = ds.child("nama").getValue(String.class);
                     Integer point = ds.child("point").getValue(Integer.class);
@@ -73,7 +72,6 @@ public class FragmentLeaderboard extends Fragment {
                         }
                     }
                 }
-                // Update the UI with the top players
             }
 
             @Override

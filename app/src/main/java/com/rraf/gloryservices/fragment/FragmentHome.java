@@ -62,23 +62,21 @@ public class FragmentHome extends Fragment {
         btnInputTf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ActivityInputTf();
-                Toast.makeText(getContext(), "Coming Soon!", Toast.LENGTH_SHORT).show();
+                ActivityInputTf();
             }
         });
         Button btnEditTf = view.findViewById(R.id.btnEditTf);
         btnEditTf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ActivityEditTf();
-                Toast.makeText(getContext(), "Coming Soon!", Toast.LENGTH_SHORT).show();
+                ActivityEditTf();
             }
         });
         Button btnMutasiTf = view.findViewById(R.id.btnMutasiTf);
         btnMutasiTf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "ComingSoon", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Coming Soon!", Toast.LENGTH_SHORT).show();
             }
         });
         TextView nama = view.findViewById(R.id.tv_nama);

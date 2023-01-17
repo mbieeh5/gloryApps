@@ -83,12 +83,10 @@ public class FragmentHistoryRedeem extends Fragment {
                         list.add(ds.getValue(OutputRedeemHistoryClass.class));
                         int point = ds.child("hJmlRedeem").getValue(Integer.class);
                             total += point;
-                    }
                     String formattedNumber = String.format(Locale.US,"%,d",total);
                     tvTot.setText(getString(R.string.total_point_terredeem, formattedNumber));
+                    }
                     adapter.notifyDataSetChanged();
-                }else{
-
                 }
             }
 

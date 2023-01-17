@@ -32,6 +32,7 @@ import com.rraf.gloryservices.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -66,9 +67,15 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
         holder.gFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                muncul(oc.getgJudul(), oc.getPoint(), oc.getNama());
+                Calendar currentDate = Calendar.getInstance();
+                int currentDay = currentDate.get(Calendar.DATE);
+                if (currentDay == 1) {
+                    muncul(oc.getgJudul(), oc.getPoint(), oc.getNama());
+                }else{
+                    Toast.makeText(context, "Redeem "+oc.gJudul+" Hanya Dapat Dilakukan Pada Tanggal 1", Toast.LENGTH_SHORT).show();
+                }
             }
-        });
+    });
     }
 
     @Override
@@ -77,8 +84,8 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
     }
 
 
+
     private void muncul(String gJudul, Integer point, String nama) {
-        Toast.makeText(context, "Redeem Ke:"+gJudul, Toast.LENGTH_SHORT).show();
         DialogPlus dialogPlus = DialogPlus.newDialog(context)
                 .setGravity(Gravity.BOTTOM)
                 .setMargin(0,0,0,0)
@@ -110,7 +117,6 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
             }
         });
         EditText nom = a.findViewById(R.id.iNominalPoint);
-
         AutoCompleteTextView atekNama = a.findViewById(R.id.atekNamaPeRedeem);
         adapterN = new ArrayAdapter<String>(context, R.layout.dropdown_list, items);
         atekNama.setAdapter(adapterN);
@@ -118,7 +124,6 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String namaRedeem = parent.getItemAtPosition(position).toString();
-                Toast.makeText(context, ""+namaRedeem, Toast.LENGTH_SHORT).show();
                 Nama = namaRedeem;
             }
         });
