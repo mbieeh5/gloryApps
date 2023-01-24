@@ -58,7 +58,7 @@ public class FragmentLeaderboard extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TextView topf = view.findViewById(R.id.tv_top);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima");
-        ref.orderByChild("point").limitToFirst(6).addValueEventListener(new ValueEventListener() {
+        ref.orderByChild("point").limitToFirst(7).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {

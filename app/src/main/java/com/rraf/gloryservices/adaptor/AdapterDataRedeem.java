@@ -48,7 +48,7 @@ public class AdapterDataRedeem extends RecyclerView.Adapter<AdapterDataRedeem.Da
     ArrayAdapter<String> adapter, adapterN;
     DatabaseReference db, dbH;
     String[] nomPulsa = {"5000","10000","20000","50000","100000"};
-    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "wardah", "RRAF" };
+    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "rere", "RRAF" };
     String Nama;
 
     public AdapterDataRedeem(Context context, ArrayList<OutputRedeemClass> list) {

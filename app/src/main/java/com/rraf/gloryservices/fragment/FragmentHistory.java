@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -132,6 +133,7 @@ public class FragmentHistory extends Fragment {
                                             list.add(oclas);
                                             total++;
                                             popup.dismiss();
+                                            Log.d("> ", oclas.getiPenerima()+" > "+oclas.getiTgl());
                                             Tot.setText(String.format(Locale.getDefault(), "%d",total));
                                             title.setText(getString(R.string.history_data_lunas));
                                         }

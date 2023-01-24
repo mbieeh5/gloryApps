@@ -32,7 +32,7 @@ public class AddActivity extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference reference;
     ArrayAdapter<String> adapter;
-    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "wardah" };
+    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "rere" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
