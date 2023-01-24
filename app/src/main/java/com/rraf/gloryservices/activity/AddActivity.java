@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,14 +16,20 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rraf.gloryservices.R;
 import com.rraf.gloryservices.adaptor.InputClass;
 import com.rraf.gloryservices.databinding.ActivityAddBinding;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class AddActivity extends AppCompatActivity {
@@ -32,7 +39,7 @@ public class AddActivity extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference reference;
     ArrayAdapter<String> adapter;
-    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "rere" };
+    //String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "rere" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,23 @@ public class AddActivity extends AppCompatActivity {
                     }
                 },year,month,day);
                 datePickerDialog.show();
+            }
+        });
+        final List<String> items = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima").orderByChild("nama").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        String name = ds.child("nama").getValue(String.class);
+                        items.add(name);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
         adapter = new ArrayAdapter<String>(this, R.layout.dropdown_list, items);
