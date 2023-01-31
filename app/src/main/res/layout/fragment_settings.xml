@@ -4,27 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FragmentSettings">
+    android:orientation="vertical"
+    tools:context=".fragment.FragmentLeaderboard">
+
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
+        android:id="@+id/cv1"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-30dp"
+        android:backgroundTint="@color/orange_base_500"
         app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardPreventCornerOverlap="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
 
         <TextView
+            android:id="@+id/idVersi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:text="@string/logout"
-            android:textColor="@color/white"
-            android:textSize="60sp" />
+            android:gravity="center_horizontal"
+            android:paddingTop="150dp"
+            android:paddingStart="10dp"
+            android:text="@string/version_666_666_666_beta"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbtbaaan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:paddingTop="30dp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b_setting"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="26sp"/>
+        </androidx.appcompat.widget.Toolbar>
     </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recv_settings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

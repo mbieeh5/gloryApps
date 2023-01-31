@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/history_redeem_point"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_marginTop="10dp"

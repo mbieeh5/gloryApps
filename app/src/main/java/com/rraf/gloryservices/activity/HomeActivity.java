@@ -86,9 +86,18 @@ public class HomeActivity extends AppCompatActivity{
         recV.setAdapter(adapter);
         final ProgressBar pb = findViewById(R.id.loading);
         sr = findViewById(R.id.refresh);
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d/M/yyyy");
-        LocalDate tanggals = LocalDate.now();
-        String tanggal = tanggals.format(dtf);
+        DateTimeFormatter dtf = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            dtf = DateTimeFormatter.ofPattern("d/M/yyyy");
+        }
+        LocalDate tanggals = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            tanggals = LocalDate.now();
+        }
+        String tanggal = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            tanggal = tanggals.format(dtf);
+        }
         db.orderByChild("iTgl").equalTo(tanggal).addValueEventListener(new ValueEventListener() {
         int total = 0;
             @Override

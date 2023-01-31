@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +27,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.rraf.gloryservices.R;
 import com.rraf.gloryservices.activity.AddActivity;
 import com.rraf.gloryservices.activity.AddTransferActivity;
@@ -32,15 +36,12 @@ import com.rraf.gloryservices.activity.EditTransferActivity;
 import com.rraf.gloryservices.activity.HomeActivity;
 import com.rraf.gloryservices.adaptor.OutputClass;
 
-import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 
 public class FragmentHome extends Fragment {
-
     private DatabaseReference mdb;
     public FragmentHome() {
         // Required empty public constructor
@@ -51,6 +52,14 @@ public class FragmentHome extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+
+    private void sendRegistrationToServer(String token) {
+        // Add custom implementation, as needed.
+
+        // Your server communicates with FCM using this token
+        // You can send it to your server now
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,29 +92,31 @@ public class FragmentHome extends Fragment {
         TextView points = view.findViewById(R.id.pointtxt);
         NumberFormat formatter = NumberFormat.getNumberInstance();
         formatter.setGroupingUsed(true);
-        mdb = FirebaseDatabase.getInstance().getReference("Service").child("dataService");
-        mdb.orderByChild("iStatus").equalTo("LUNAS").addValueEventListener(new ValueEventListener() {
-            int total = 0;
+        mdb = FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima");
+        mdb.orderByChild("point").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    int totalp = 0;
                 for(DataSnapshot ds : snapshot.getChildren()){
-                OutputClass output = ds.getValue(OutputClass.class);
-                    if(output != null && "LUNAS".equals(output.getiStatus())){
-                        total++;
-                    }else{
-                        points.setText("0");
+                    Object value = ds.child("point").getValue();
+                    if(value != null){
+                     totalp += Integer.parseInt(value.toString());
                     }
+                    final String pointM = NumberFormat.getNumberInstance(Locale.US).format(totalp);
+                    points.setText(pointM);
                 }
-                final int point = (int) (total * 5000);
-                final String pointM = NumberFormat.getNumberInstance(Locale.US).format(point);
-                points.setText(pointM);
+                }
+                else{
+                    points.setText("0");
+                    }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null){
                     String email = user.getEmail();

@@ -18,7 +18,6 @@ import com.rraf.gloryservices.fragment.FragmentPoint;
 import com.rraf.gloryservices.fragment.FragmentSettings;
 
 public class Home extends AppCompatActivity {
-
     ActivityHomeBinding binding;
 
     @Override
@@ -46,7 +45,6 @@ public class Home extends AppCompatActivity {
         return true;
     });
     }
-
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
 

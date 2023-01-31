@@ -160,4 +160,6 @@
     <string name="sn">SN: %1$d</string>
     <string name="nama_penukar">Nama Penukar: %s</string>
     <string name="berhasil">BERHASIL</string>
+    <string name="msg_token_fmt">Token Anda adalah: %s</string>
+    <string name="version_666_666_666_beta">version: %s</string>
 </resources>
