@@ -34,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRedeemDonasi.DataViewHolder> {
@@ -118,6 +119,23 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
         });
         EditText nom = a.findViewById(R.id.iNominalPoint);
         AutoCompleteTextView atekNama = a.findViewById(R.id.atekNamaPeRedeem);
+        final List<String> items = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima").orderByChild("nama").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        String name = ds.child("nama").getValue(String.class);
+                        items.add(name);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         adapterN = new ArrayAdapter<String>(context, R.layout.dropdown_list, items);
         atekNama.setAdapter(adapterN);
         atekNama.setOnItemClickListener(new AdapterView.OnItemClickListener() {

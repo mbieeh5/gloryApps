@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class AdapterDataRedeem extends RecyclerView.Adapter<AdapterDataRedeem.DataViewHolder> {
@@ -116,12 +117,32 @@ public class AdapterDataRedeem extends RecyclerView.Adapter<AdapterDataRedeem.Da
         int tot = 0;
         nom.setText(String.valueOf(tot));
         AutoCompleteTextView atekNama = a.findViewById(R.id.atekNamaPeRedeem);
+        final List<String> items = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima").orderByChild("nama").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        String name = ds.child("nama").getValue(String.class);
+                        items.add(name);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         adapterN = new ArrayAdapter<String>(context, R.layout.dropdown_list, items);
         atekNama.setAdapter(adapterN);
+
+
+
         atekNama.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String namaRedeem = parent.getItemAtPosition(position).toString();Toast.makeText(context, ""+namaRedeem, Toast.LENGTH_SHORT).show();
+                String namaRedeem = parent.getItemAtPosition(position).toString();
                 Nama = namaRedeem;
             }
         });

@@ -43,6 +43,7 @@ import com.rraf.gloryservices.adaptor.OutputRedeemDonasiClass;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class FragmentPoint extends Fragment {
@@ -54,7 +55,7 @@ public class FragmentPoint extends Fragment {
     AdapterDataRedeemDonasi adapterD;
     DatabaseReference db, dbD, dbP;
     AutoCompleteTextView atek;
-    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "wardah", "RRAF" };
+    //String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "wardah", "RRAF" };
     TextView tvPoint;
     Button btnhis;
 
@@ -78,11 +79,30 @@ public class FragmentPoint extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         atek = view.findViewById(R.id.ATnama);
-        adapters = new ArrayAdapter<String>(getContext(), R.layout.dropdown_list, items);
-        atek.setAdapter(adapters);
         tvPoint = view.findViewById(R.id.tvPoint);
         dbP = FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima");
         tvPoint.setText("-");
+
+        final List<String> items = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference("Users").child("dataPenerima").orderByChild("nama").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        String name = ds.child("nama").getValue(String.class);
+                        items.add(name);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        adapters = new ArrayAdapter<String>(getContext(), R.layout.dropdown_list, items);
+        atek.setAdapter(adapters);
+
         atek.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -95,7 +115,6 @@ public class FragmentPoint extends Fragment {
                                 LeaderboardClass oclas = ds.getValue(LeaderboardClass.class);
                                 if(oclas != null){
                                 Integer point = oclas.getPoint();
-                                //namaPeRedeem = oclas.getNama();
                                 String formattedString = NumberFormat.getNumberInstance(Locale.US).format(point);
                                 tvPoint.setText(formattedString);
                                 }
