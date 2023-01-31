@@ -2,6 +2,7 @@ package com.rraf.gloryservices.adaptor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -79,7 +80,10 @@ public class AdapterDataPengaturan extends RecyclerView.Adapter<AdapterDataPenga
         }else if(Objects.equals(pengaturan, "PengaturanTampilan")){
             Toast.makeText(context, "Gausah Di ubah ubah, input aja udah", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "Aplikasi Sudah Versi Terbaru", Toast.LENGTH_SHORT).show();
+            String url = "https://drive.google.com/drive/folders/1P_-YicIG5ehfmxM-ScKTGXJje2QskZtu?usp=sharing";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            context.startActivity(i);
         }
 
     }
