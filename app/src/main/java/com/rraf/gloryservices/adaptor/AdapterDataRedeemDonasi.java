@@ -42,12 +42,9 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
     Context context;
     ArrayList<OutputRedeemDonasiClass> listD;
     ArrayAdapter<String> adapter, adapterN;
-    DatabaseReference db, dbH;
+    DatabaseReference db, dbH, status;
     String[] nomPulsa = {"5000","10000","20000","50000","100000"};
-    String[] items = {"aldi", "amri", "seli", "sindy", "hilda", "wardah", "RRAF" };
-    String nomNomPul, Nama;
-
-
+    String Nama;
 
 
     public AdapterDataRedeemDonasi(Context context, ArrayList<OutputRedeemDonasiClass> listD) {
@@ -68,13 +65,26 @@ public class AdapterDataRedeemDonasi extends RecyclerView.Adapter<AdapterDataRed
         holder.gFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar currentDate = Calendar.getInstance();
-                int currentDay = currentDate.get(Calendar.DATE);
-                if (currentDay == 1) {
-                    muncul(oc.getgJudul(), oc.getPoint(), oc.getNama());
-                }else{
-                    Toast.makeText(context, "Redeem "+oc.gJudul+" Hanya Dapat Dilakukan Pada Tanggal 1", Toast.LENGTH_SHORT).show();
-                }
+                status = FirebaseDatabase.getInstance().getReference("Data").child("statusRedeem");
+                status.orderByChild("statusR").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            for(DataSnapshot ds : snapshot.getChildren()){
+                                String statusR = ds.child("R").getValue(String.class);
+                                if (statusR != null && statusR.equals("OPEN")) {
+                                    muncul(oc.getgJudul(), oc.getPoint(), oc.getNama());
+                                }else {
+                                    Toast.makeText(context, "Redeem "+oc.gJudul+" Sedang Close nihh", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
     });
     }

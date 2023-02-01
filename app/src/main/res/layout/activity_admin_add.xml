@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="12dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/tambah_hapus_nama_penerima"
+            android:textSize="25sp"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/penerimaBaru"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cv01"
+        android:layout_marginTop="25dp"
+        android:hint="@string/masukan_nama_penerima_baru"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/atekHapusPenerima"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:boxBackgroundColor="@color/black"
+        android:hint="@string/hapus_penerima"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/penerimaBaru"
+        >
+        <AutoCompleteTextView
+            android:id="@+id/atekHapusP"
+            android:background="@color/white"
+            android:hint="@string/hapus_penerima"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSimpanAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/b_simpan"
+        app:layout_constraintTop_toBottomOf="@id/atekHapusPenerima"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

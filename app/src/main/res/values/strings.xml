@@ -162,4 +162,13 @@
     <string name="berhasil">BERHASIL</string>
     <string name="msg_token_fmt">Token Anda adalah: %s</string>
     <string name="version_666_666_666_beta">version: %s</string>
+    <string name="admin_panel">Admin Panel</string>
+    <string name="role_admin">ROLE: Admin</string>
+    <string name="edit_pengguna">Edit Pengguna</string>
+    <string name="cuti">Cuti</string>
+    <string name="edit_sesuatu">EDIT SESUATU</string>
+    <string name="set_redeem_point">Set Redeem Point</string>
+    <string name="tambah_hapus_nama_penerima">Tambah/Hapus Nama Penerima</string>
+    <string name="masukan_nama_penerima_baru">Masukan Nama Penerima Baru</string>
+    <string name="hapus_penerima">Hapus Penerima</string>
 </resources>

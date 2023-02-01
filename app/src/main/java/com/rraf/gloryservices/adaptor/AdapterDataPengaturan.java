@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,7 @@ import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.rraf.gloryservices.LoginActivity;
 import com.rraf.gloryservices.R;
+import com.rraf.gloryservices.activity.AdminPanelActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -79,11 +81,26 @@ public class AdapterDataPengaturan extends RecyclerView.Adapter<AdapterDataPenga
             Toast.makeText(context, "Aplikasi Made By: Rraf", Toast.LENGTH_SHORT).show();
         }else if(Objects.equals(pengaturan, "PengaturanTampilan")){
             Toast.makeText(context, "Gausah Di ubah ubah, input aja udah", Toast.LENGTH_SHORT).show();
-        }else{
+        }else if(Objects.equals(pengaturan, "UpdateAplikasi")){
             String url = "https://drive.google.com/drive/folders/1P_-YicIG5ehfmxM-ScKTGXJje2QskZtu?usp=sharing";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             context.startActivity(i);
+        }else if(Objects.equals(pengaturan, "Admin Panel")){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    if (Objects.equals(user.getEmail(), "ali@admin.com")) {
+                        Intent intent = new Intent(context, AdminPanelActivity.class);
+                        context.startActivity(intent);
+                    } else if (Objects.equals(user.getEmail(), "admin@rraf.rraf")) {
+                        Intent intent = new Intent(context, AdminPanelActivity.class);
+                        context.startActivity(intent);
+                    } else {
+                        Toast.makeText(context, "Admin Only", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        }else{
+            Toast.makeText(context, "Feature Not Avaliable/Coming Soon", Toast.LENGTH_SHORT).show();
         }
 
     }
