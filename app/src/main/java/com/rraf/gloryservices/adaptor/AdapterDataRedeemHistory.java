@@ -39,7 +39,6 @@ public class AdapterDataRedeemHistory extends RecyclerView.Adapter<AdapterDataRe
 
     Context context;
     ArrayList<OutputRedeemHistoryClass> list;
-    DatabaseReference db, dbH;
 
 
     public AdapterDataRedeemHistory(Context context, ArrayList<OutputRedeemHistoryClass> list) {

@@ -30,8 +30,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.rraf.gloryservices.R;
+import com.rraf.gloryservices.activity.AbsensiActivity;
 import com.rraf.gloryservices.activity.AddActivity;
 import com.rraf.gloryservices.activity.AddTransferActivity;
+import com.rraf.gloryservices.activity.CekAbsenActivity;
 import com.rraf.gloryservices.activity.EditTransferActivity;
 import com.rraf.gloryservices.activity.HomeActivity;
 import com.rraf.gloryservices.adaptor.OutputClass;
@@ -150,6 +152,26 @@ public class FragmentHome extends Fragment {
                 replaceFragment(new FragmentHistory());
             }
         });
+
+        //Absensi
+        Button btnAbsen = view.findViewById(R.id.btnAbsen);
+        btnAbsen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AbsensiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnCekAbsen = view.findViewById(R.id.btnCekAbsen);
+        btnCekAbsen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CekAbsenActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 

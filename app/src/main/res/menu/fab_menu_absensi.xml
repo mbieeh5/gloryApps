@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fTepatWaktu"
+        android:title="@string/tepatwaktu"/>
+
+    <item
+        android:id="@+id/fTerlambat"
+        android:title="@string/terlambat"/>
+
+    <item
+        android:id="@+id/fLainnya"
+        android:title="@string/lain_lain"/>
+
+</menu>

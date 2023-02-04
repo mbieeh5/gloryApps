@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cvAbsen"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/imageAbsen"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_margin="5dp"
+            />
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/namaAbsen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nama_s"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/tanggalAbsen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanggal_s"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/jamAbsen"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/jam_s"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/statusAbsen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_keharian_s"
+            android:textSize="20sp"
+            />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

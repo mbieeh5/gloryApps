@@ -362,11 +362,98 @@
             android:paddingTop="45dp"
             android:text="@string/mutasi" />
     </androidx.cardview.widget.CardView>
+
+    <!-- Absensi Section-->
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divBatesA"
+        android:layout_width="360dp"
+        app:dividerColor="@color/orange_base_250"
+        android:layout_height="3dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvMutasiTf"/>
+    <TextView
+        android:id="@+id/tvAbsen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divBatesA"
+        android:text="@string/absensi"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@id/divBatesA"
+        app:layout_constraintStart_toEndOf="@id/tvTransfer"
+        android:backgroundTint="@color/orange_base_250"
+        android:background="@drawable/ic_baseline_camera_alt_24"
+        android:contentDescription="@string/absensi" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAbsen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cvCekAbsen"
+        app:layout_constraintTop_toBottomOf="@+id/tvAbsen">
+
+        <Button
+            android:id="@+id/btnAbsen"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_camera_alt_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="45dp"
+            android:text="@string/absen" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCekAbsen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:layout_constraintStart_toEndOf="@+id/cvInputTf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAbsen">
+
+        <Button
+            android:id="@+id/btnCekAbsen"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_history_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="45dp"
+            android:text="@string/edit" />
+    </androidx.cardview.widget.CardView>
+        <!-- Bates Akhir-->
         <androidx.cardview.widget.CardView
-            android:layout_width="400dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="125dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cvMutasiTf"
+            app:layout_constraintTop_toBottomOf="@id/cvCekAbsen"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="40dp"
             app:cardBackgroundColor="@color/orange_base_50"
