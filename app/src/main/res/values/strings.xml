@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">GloryApps</string>
-    <!-- Strings related to login -->
     <string name="login_form">Login</string>
     <string name="login_form_email">Email</string>
     <string name="login_form_password">Password</string>
@@ -8,21 +7,16 @@
     <string name="total_data_service">Total Data: %1$d</string>
     <string name="tv_title_history">History Service</string>
     <string name="tv_title_history_dalem">Semua data</string>
-    <!-- String related to Home-->
     <string name="welcome">Welcome Aboard Captain</string>
     <string name="home">Home</string>
     <string name="latest_service">Latest Service</string>
     <string name="stock_info">Info Stock</string>
     <string name="float_btn">Add</string>
-
-    <!--String for Bottom Nav-->
     <string name="b_leader">Leaderboard</string>
     <string name="b_home">Home</string>
     <string name="b_search">Search</string>
     <string name="b_profile">Profile</string>
     <string name="b_setting">Settings</string>
-
-    <!--String for Add-->
     <string name="i_add">InputService</string>
     <string name="t_date">Tanggal</string>
     <string name="t_hp">Type HP</string>
@@ -44,7 +38,6 @@
     <string name="h_status">Masukan Status Service</string>
     <string name="b_simpan">Simpan</string>
     <string name="tv_edit">Edit Service</string>
-    <!--String For Home-->
     <string name="t_list">List Service</string>
     <string name="j_tgl">Tanggal</string>
     <string name="j_hp">Type HP</string>
@@ -55,16 +48,6 @@
     <string name="nama_war">wardah</string>
     <string name="nama_hil">hilda</string>
     <string name="nama_aldi">aldi</string>
-
-    <string-array name="nama_penerima">
-        <item>marcelina</item>
-        <item>sindy</item>
-        <item>wardah</item>
-        <item>hilda</item>
-        <item>aldi</item>
-        <item>richard</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lunas">LUNAS</string>
     <string name="cancel">CANCEL</string>
