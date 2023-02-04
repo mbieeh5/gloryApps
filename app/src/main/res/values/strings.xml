@@ -179,7 +179,7 @@
     <string name="nama_s">Nama: %s</string>
     <string name="tanggal_s">Tanggal: %s</string>
     <string name="jam_s">Jam: %s</string>
-    <string name="status_keharian_s">Status Keharian: %s</string>
+    <string name="status_keharian_s">Status Kehardian: %s</string>
     <string name="pilih_nama">Pilih Nama</string>
     <string name="tepatwaktu">TepatWaktu</string>
     <string name="terlambat">Terlambat</string>
