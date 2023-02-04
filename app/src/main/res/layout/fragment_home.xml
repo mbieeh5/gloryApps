@@ -446,7 +446,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="45dp"
-            android:text="@string/edit" />
+            android:text="@string/cek_absen" />
     </androidx.cardview.widget.CardView>
         <!-- Bates Akhir-->
         <androidx.cardview.widget.CardView

@@ -102,13 +102,9 @@ public class AbsensiActivity extends AppCompatActivity {
             @Override
             public void onActivityResult(ActivityResult result) {
                 Bundle extra = result.getData().getExtras();
-
                 Bitmap img = (Bitmap) extra.get("data");
-                    WeakReference<Bitmap> res1 = new WeakReference<>(Bitmap.createScaledBitmap(img, img.getHeight(), img.getWidth(), false).copy(
-                            Bitmap.Config.RGB_565, true
-                    ));
-                    Bitmap bm = res1.get();
-                    mImageUri = SaveImage(bm, AbsensiActivity.this);
+                Bitmap res1 = Bitmap.createScaledBitmap(img, img.getWidth() * 2, img.getHeight() * 2, true);
+                mImageUri = SaveImage(res1, AbsensiActivity.this);
                     mImageView.setImageURI(mImageUri);
             }
         });

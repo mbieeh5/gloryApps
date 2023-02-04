@@ -184,4 +184,6 @@
     <string name="tepatwaktu">TepatWaktu</string>
     <string name="terlambat">Terlambat</string>
     <string name="lain_lain">Lain-Lain</string>
+    <string name="cek_absen">CekDisini</string>
+    <string name="semua_data">Semua Data</string>
 </resources>

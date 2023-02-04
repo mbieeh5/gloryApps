@@ -168,7 +168,7 @@ public class CekAbsenActivity extends AppCompatActivity {
                             DialogPlus dialogPlus = DialogPlus.newDialog(CekAbsenActivity.this)
                                     .setGravity(Gravity.CENTER)
                                     .setMargin(50, 0, 50, 0)
-                                    .setContentHolder(new ViewHolder(R.layout.sort_item_edit))
+                                    .setContentHolder(new ViewHolder(R.layout.sort_item_absen))
                                     .setExpanded(false)
                                     .create();
                             View a = (LinearLayout) dialogPlus.getHolderView();

@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                     lgn_btn.setEnabled(true);
             }
         });
+
         if(mAuth.getCurrentUser() != null) {
             Intent home = new Intent(LoginActivity.this, Home.class);
             startActivity(home);
